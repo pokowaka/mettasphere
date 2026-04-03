@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Practice Progress — The Ethereal Editorial</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .serif-text {
+      font-family: 'Noto Serif', serif;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+  </style>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#fff7f6",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#e3e3db",
+            "surface": "#fbf9f4",
+            "on-surface-variant": "#5e6059",
+            "tertiary-fixed-dim": "#eed9c6",
+            "tertiary": "#6c5c4d",
+            "primary-fixed-dim": "#bedbce",
+            "inverse-primary": "#d7f5e7",
+            "on-secondary": "#f2faff",
+            "on-tertiary-fixed-variant": "#6d5e4f",
+            "on-surface": "#31332e",
+            "inverse-on-surface": "#9e9d99",
+            "on-primary": "#e5fff2",
+            "on-background": "#31332e",
+            "surface-bright": "#fbf9f4",
+            "tertiary-container": "#fde7d3",
+            "secondary-fixed-dim": "#c0d8e4",
+            "on-primary-fixed": "#2a443b",
+            "outline-variant": "#b2b2ab",
+            "background": "#fbf9f4",
+            "error": "#a83836",
+            "on-primary-fixed-variant": "#466156",
+            "surface-container-high": "#e9e8e1",
+            "primary": "#4a655a",
+            "surface-tint": "#4a655a",
+            "secondary-container": "#cee6f2",
+            "secondary-dim": "#405660",
+            "on-error-container": "#6e0a12",
+            "error-container": "#fa746f",
+            "primary-fixed": "#cbe9db",
+            "primary-container": "#cbe9db",
+            "on-secondary-fixed": "#2c424c",
+            "on-secondary-fixed-variant": "#495f69",
+            "tertiary-fixed": "#fde7d3",
+            "on-tertiary-fixed": "#504234",
+            "secondary": "#4c626c",
+            "on-secondary-container": "#3f555f",
+            "on-tertiary": "#fff7f3",
+            "primary-dim": "#3e594e",
+            "outline": "#7a7b75",
+            "tertiary-dim": "#5f5142",
+            "error-dim": "#67040d",
+            "secondary-fixed": "#cee6f2",
+            "inverse-surface": "#0e0e0c",
+            "surface-dim": "#dadad2",
+            "on-primary-container": "#3d574d",
+            "surface-container-highest": "#e3e3db",
+            "surface-container": "#efeee7",
+            "on-tertiary-container": "#635445",
+            "surface-container-low": "#f5f4ed"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+  <!-- Top Navigation Anchor -->
+  <header class="sticky top-0 z-50 bg-[#fbf9f4] dark:bg-[#1a1c18] flex justify-between items-center px-6 py-4 w-full">
+    <div class="flex items-center gap-4">
+      <button
+        class="hover:bg-[#f5f4ed]/50 dark:hover:bg-[#232620]/50 transition-colors duration-500 p-2 rounded-full active:scale-95 ease-in-out">
+        <span class="material-symbols-outlined text-[#4a655a] dark:text-[#cbe9db]"
+          data-icon="arrow_back">arrow_back</span>
+      </button>
+      <h1
+        class="font-noto-serif text-lg tracking-tight font-noto-serif text-xl font-medium text-[#4a655a] dark:text-[#cbe9db]">
+        Practice Progress</h1>
+    </div>
+    <div
+      class="hidden md:flex gap-8 items-center font-manrope text-[11px] uppercase tracking-[0.05rem] font-medium text-[#74796d]">
+      <a class="hover:text-[#4a655a] transition-colors" href="#">Journey</a>
+      <a class="text-[#4a655a] font-semibold" href="#">Practice</a>
+      <a class="hover:text-[#4a655a] transition-colors" href="#">Reflect</a>
+      <a class="hover:text-[#4a655a] transition-colors" href="#">Journal</a>
+    </div>
+  </header>
+  <main class="max-w-6xl mx-auto px-6 pt-12 space-y-16">
+    <!-- Hero Section: Quiet Entry -->
+    <section class="space-y-4">
+      <p class="font-label text-sm uppercase tracking-[0.1rem] text-primary">Monthly Observation</p>
+      <h2 class="serif-text text-5xl md:text-7xl font-light text-on-surface leading-tight max-w-3xl">The habit is
+        deepening. Awareness finds its own space.</h2>
+      <div class="h-1 w-24 bg-primary-container rounded-full mt-8"></div>
+    </section>
+    <!-- Bento Grid for Progress -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <!-- Sati Sensitivity Trend (Wide) -->
+      <section
+        class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_32px_rgba(49,51,46,0.06)] space-y-8">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 class="font-label text-xs uppercase tracking-wider text-on-surface-variant font-semibold">Sati
+              Sensitivity Trend</h3>
+            <p class="serif-text text-2xl text-on-surface mt-1">Recognition Speed</p>
+          </div>
+          <div class="bg-primary-container px-4 py-1.5 rounded-full">
+            <span class="text-on-primary-container text-xs font-bold tracking-tight">LEVEL 3.2</span>
+          </div>
+        </div>
+        <!-- Simulated Graph Area -->
+        <div class="relative h-64 w-full flex items-end gap-2 px-4 border-b border-surface-variant">
+          <div class="absolute inset-0 flex flex-col justify-between py-2">
+            <span class="text-[10px] text-outline-variant font-medium">Level 4</span>
+            <span class="text-[10px] text-outline-variant font-medium">Level 3</span>
+            <span class="text-[10px] text-outline-variant font-medium">Level 2</span>
+            <span class="text-[10px] text-outline-variant font-medium">Level 1</span>
+          </div>
+          <div class="flex-1 bg-primary-fixed-dim/30 h-[20%] rounded-t-lg"></div>
+          <div class="flex-1 bg-primary-fixed-dim/40 h-[35%] rounded-t-lg"></div>
+          <div class="flex-1 bg-primary-fixed-dim/50 h-[48%] rounded-t-lg"></div>
+          <div class="flex-1 bg-primary-fixed-dim/60 h-[62%] rounded-t-lg"></div>
+          <div class="flex-1 bg-primary-fixed-dim/70 h-[75%] rounded-t-lg"></div>
+          <div class="flex-1 bg-primary h-[85%] rounded-t-lg"></div>
+        </div>
+        <div class="p-6 bg-surface-container-low rounded-xl">
+          <p class="font-body text-on-surface-variant leading-relaxed italic">
+            "You are catching distractions <span class="text-primary font-bold">40% faster</span> this month. Your
+            mindfulness is becoming proactive."
+          </p>
+        </div>
+      </section>
+      <!-- Off the Cushion Score (Narrow) -->
+      <section
+        class="md:col-span-4 bg-primary bg-gradient-to-br from-primary to-primary-dim rounded-xl p-8 flex flex-col justify-between text-on-primary">
+        <div class="space-y-1">
+          <h3 class="font-label text-xs uppercase tracking-widest opacity-80 font-bold">Daily Awareness</h3>
+          <p class="serif-text text-xl">Off the Cushion</p>
+        </div>
+        <div class="py-12 flex flex-col items-center justify-center space-y-4">
+          <div class="text-7xl font-light tracking-tighter">14</div>
+          <div class="font-label text-xs tracking-widest uppercase opacity-70">'Smile &amp; Relax' Moments</div>
+        </div>
+        <div class="bg-on-primary/10 rounded-xl p-4 text-xs leading-relaxed">
+          The mind maintains its poise during daily transitions. The gap is narrowing.
+        </div>
+      </section>
+      <!-- Tanha-Release Ratio (Radar Style Card) -->
+      <section
+        class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_32px_rgba(49,51,46,0.06)]">
+        <div class="mb-10">
+          <h3 class="font-label text-xs uppercase tracking-wider text-on-surface-variant font-semibold">Tanha-Release
+            Ratio</h3>
+          <p class="serif-text text-2xl text-on-surface mt-1">Hindrance Release Precision</p>
+        </div>
+        <div class="relative w-48 h-48 mx-auto flex items-center justify-center">
+          <!-- Placeholder for Radar Chart -->
+          <div class="absolute inset-0 border-[1px] border-surface-variant rounded-full"></div>
+          <div class="absolute inset-4 border-[1px] border-surface-variant rounded-full"></div>
+          <div class="absolute inset-10 border-[1px] border-surface-variant rounded-full"></div>
+          <div class="w-full h-full p-2">
+            <svg class="w-full h-full overflow-visible" viewbox="0 0 100 100">
+              <polygon fill="none" points="50,10 85,35 75,80 25,80 15,35" stroke="#e3e3db" stroke-width="0.5"></polygon>
+              <polygon class="opacity-60" fill="#cbe9db" points="50,25 75,40 70,70 30,70 25,45" stroke="#4a655a"
+                stroke-width="1.5"></polygon>
+            </svg>
+          </div>
+          <div class="absolute -top-6 text-[10px] font-bold text-on-surface-variant">Desire</div>
+          <div class="absolute top-1/4 -right-12 text-[10px] font-bold text-on-surface-variant">Ill Will</div>
+          <div class="absolute -bottom-6 -right-4 text-[10px] font-bold text-on-surface-variant">Restlessness</div>
+          <div class="absolute -bottom-6 -left-4 text-[10px] font-bold text-on-surface-variant">Doubt</div>
+          <div class="absolute top-1/4 -left-12 text-[10px] font-bold text-on-surface-variant">Sloth</div>
+        </div>
+        <div class="mt-12 space-y-4">
+          <div class="flex justify-between items-center text-sm pb-2 border-b border-surface-container-low">
+            <span class="text-on-surface-variant">Strongest Release</span>
+            <span class="font-semibold text-primary">Sloth &amp; Torpor</span>
+          </div>
+          <div class="flex justify-between items-center text-sm pb-2 border-b border-surface-container-low">
+            <span class="text-on-surface-variant">Work Area</span>
+            <span class="font-semibold text-primary">Restlessness</span>
+          </div>
+        </div>
+      </section>
+      <!-- Hindrance Weather Log (Stacked Bar) -->
+      <section
+        class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 shadow-[0_12px_32px_rgba(49,51,46,0.06)] flex flex-col">
+        <div class="mb-10">
+          <h3 class="font-label text-xs uppercase tracking-wider text-on-surface-variant font-semibold">Hindrance
+            Weather Log</h3>
+          <p class="serif-text text-2xl text-on-surface mt-1">Nivarana Trends</p>
+        </div>
+        <div class="flex-grow space-y-6">
+          <div class="space-y-1">
+            <div class="flex justify-between text-[10px] uppercase font-bold text-outline">
+              <span>Week 1</span>
+            </div>
+            <div class="flex h-6 w-full rounded-full overflow-hidden bg-surface-container">
+              <div class="h-full bg-secondary-dim w-[60%]" title="Sloth"></div>
+              <div class="h-full bg-secondary w-[30%]" title="Desire"></div>
+              <div class="h-full bg-secondary-fixed-dim w-[10%]" title="Restless"></div>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <div class="flex justify-between text-[10px] uppercase font-bold text-outline">
+              <span>Week 2</span>
+            </div>
+            <div class="flex h-6 w-full rounded-full overflow-hidden bg-surface-container">
+              <div class="h-full bg-secondary-dim w-[40%]" title="Sloth"></div>
+              <div class="h-full bg-secondary w-[40%]" title="Desire"></div>
+              <div class="h-full bg-secondary-fixed-dim w-[20%]" title="Restless"></div>
+            </div>
+          </div>
+          <div class="space-y-1">
+            <div class="flex justify-between text-[10px] uppercase font-bold text-outline">
+              <span>Week 3</span>
+            </div>
+            <div class="flex h-6 w-full rounded-full overflow-hidden bg-surface-container">
+              <div class="h-full bg-secondary-dim w-[20%]" title="Sloth"></div>
+              <div class="h-full bg-secondary w-[30%]" title="Desire"></div>
+              <div class="h-full bg-secondary-fixed-dim w-[50%]" title="Restless"></div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 flex gap-4 items-center">
+          <div class="flex items-center gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-secondary-dim"></div> <span
+              class="text-[10px] font-bold opacity-60">SLOTH</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-secondary"></div> <span
+              class="text-[10px] font-bold opacity-60">DESIRE</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="w-3 h-3 rounded-full bg-secondary-fixed-dim"></div> <span
+              class="text-[10px] font-bold opacity-60">RESTLESS</span>
+          </div>
+        </div>
+      </section>
+      <!-- Jhana Factor Bloom -->
+      <section class="md:col-span-12 bg-surface-container-high rounded-xl p-10 overflow-hidden relative">
+        <div class="relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 class="font-label text-xs uppercase tracking-wider text-on-surface-variant font-semibold mb-1">Jhana
+              Factor Bloom</h3>
+            <h2 class="serif-text text-4xl text-on-surface leading-tight">Your sessions are becoming consistently
+              Equanimous and Unified.</h2>
+            <p class="font-body text-on-surface-variant mt-4 leading-relaxed">
+              A shift from Piti (Joy) toward Sukha (Comfort) and eventually Upekkha (Equanimity) is observed in the last
+              14 sittings.
+            </p>
+          </div>
+          <div class="flex justify-center items-center h-64">
+            <div class="relative w-48 h-48">
+              <!-- Bloom Visualization: Overlapping Soft Radial Gradients -->
+              <div class="absolute inset-0 bg-primary-container/40 rounded-full blur-3xl animate-pulse"></div>
+              <div class="absolute inset-4 bg-secondary-container/50 rounded-full blur-2xl"></div>
+              <div class="absolute inset-8 bg-tertiary-container/60 rounded-full blur-xl"></div>
+              <!-- Soft Labels -->
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 text-center">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-primary-dim block">Piti</span>
+                <span class="text-xl serif-text">84%</span>
+              </div>
+              <div class="absolute top-1/2 -right-8 -translate-y-1/2 text-center">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-secondary-dim block">Sukha</span>
+                <span class="text-xl serif-text">72%</span>
+              </div>
+              <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 text-center">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-tertiary-dim block">Upekkha</span>
+                <span class="text-xl serif-text">65%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Decorative element -->
+        <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-white/30 rounded-full blur-[100px]"></div>
+      </section>
+      <!-- Encouraging Summary -->
+      <section class="md:col-span-12 bg-surface-container-low rounded-xl p-10 border-[1px] border-outline-variant/15">
+        <div class="mb-8">
+          <h3 class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Insight Matrix
+          </h3>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="space-y-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-outline">Primary Hindrance</p>
+            <p class="serif-text text-xl">Restlessness</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-outline">Relax Precision</p>
+            <p class="serif-text text-xl">High / Gentle</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-outline">The Gap Awareness</p>
+            <p class="serif-text text-xl">9.4 Seconds</p>
+          </div>
+          <div class="space-y-1">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-outline">Dominant Feeling</p>
+            <p class="serif-text text-xl">Unified Quiet</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Call to Action -->
+    <section class="flex flex-col items-center text-center space-y-6 pb-12">
+      <p class="font-body text-on-surface-variant max-w-lg">
+        The mind is becoming more transparent. Continue the gentle effort.
+      </p>
+      <button
+        class="px-10 py-4 bg-gradient-to-br from-primary to-primary-dim text-on-primary rounded-full font-label font-semibold tracking-wide shadow-[0_12px_32px_rgba(49,51,46,0.06)] active:scale-95 transition-all duration-300">
+        Begin New Session
+      </button>
+    </section>
+  </main>
+  <!-- Bottom Navigation Shell -->
+  <nav
+    class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pt-3 pb-8 bg-[#ffffff]/70 dark:bg-[#1a1c18]/70 backdrop-blur-xl z-50 rounded-t-3xl shadow-[0_12px_32px_rgba(49,51,46,0.06)]">
+    <a class="flex flex-col items-center justify-center text-[#74796d] px-5 py-1.5 hover:text-[#4a655a] transition-all duration-300"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+      <span class="font-manrope text-[11px] uppercase tracking-[0.05rem] font-medium mt-1">Journey</span>
+    </a>
+    <a class="flex flex-col items-center justify-center bg-gradient-to-br from-[#4a655a] to-[#3e594e] text-[#e5fff2] rounded-full px-5 py-1.5 transition-all duration-500 transform active:scale-90"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="self_improvement"
+        style="font-variation-settings: 'FILL' 1;">self_improvement</span>
+      <span class="font-manrope text-[11px] uppercase tracking-[0.05rem] font-medium mt-1">Practice</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#74796d] px-5 py-1.5 hover:text-[#4a655a] transition-all duration-300"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="auto_graph">auto_graph</span>
+      <span class="font-manrope text-[11px] uppercase tracking-[0.05rem] font-medium mt-1">Reflect</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#74796d] px-5 py-1.5 hover:text-[#4a655a] transition-all duration-300"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+      <span class="font-manrope text-[11px] uppercase tracking-[0.05rem] font-medium mt-1">Journal</span>
+    </a>
+  </nav>
+</body>
+
+</html>

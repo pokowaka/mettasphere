@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Configure Preset | Ethereal</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-dim": "#405660",
+            "error-dim": "#67040d",
+            "surface-container-low": "#f5f4ed",
+            "secondary-fixed-dim": "#c0d8e4",
+            "inverse-on-surface": "#9e9d99",
+            "surface-container": "#efeee7",
+            "on-tertiary-fixed-variant": "#6d5e4f",
+            "outline-variant": "#b2b2ab",
+            "on-error-container": "#6e0a12",
+            "on-primary-container": "#3d574d",
+            "on-tertiary-fixed": "#504234",
+            "surface-container-high": "#e9e8e1",
+            "on-surface": "#31332e",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#31332e",
+            "on-tertiary-container": "#635445",
+            "secondary-fixed": "#cee6f2",
+            "on-surface-variant": "#5e6059",
+            "on-primary-fixed-variant": "#466156",
+            "on-secondary-fixed": "#2c424c",
+            "outline": "#7a7b75",
+            "primary": "#4a655a",
+            "error-container": "#fa746f",
+            "inverse-surface": "#0e0e0c",
+            "on-secondary-container": "#3f555f",
+            "on-primary": "#e5fff2",
+            "surface-bright": "#fbf9f4",
+            "secondary-container": "#cee6f2",
+            "on-tertiary": "#fff7f3",
+            "tertiary-container": "#fde7d3",
+            "surface": "#fbf9f4",
+            "surface-dim": "#dadad2",
+            "primary-dim": "#3e594e",
+            "secondary": "#4c626c",
+            "tertiary-dim": "#5f5142",
+            "surface-tint": "#4a655a",
+            "on-secondary": "#f2faff",
+            "tertiary": "#6c5c4d",
+            "error": "#a83836",
+            "background": "#fbf9f4",
+            "surface-container-highest": "#e3e3db",
+            "primary-container": "#cbe9db",
+            "tertiary-fixed-dim": "#eed9c6",
+            "tertiary-fixed": "#fde7d3",
+            "surface-variant": "#e3e3db",
+            "primary-fixed-dim": "#bedbce",
+            "on-primary-fixed": "#2a443b",
+            "on-error": "#fff7f6",
+            "on-secondary-fixed-variant": "#495f69",
+            "primary-fixed": "#cbe9db",
+            "inverse-primary": "#d7f5e7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #4a655a;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #4a655a;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+  <!-- TopAppBar -->
+  <header
+    class="bg-[#fbf9f4]/70 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 border-b border-outline-variant/10">
+    <div class="flex items-center gap-4">
+      <button
+        class="text-[#4a655a] hover:opacity-80 transition-opacity duration-500 scale-95 active:duration-300 ease-in-out">
+        <span class="material-symbols-outlined" data-icon="close">close</span>
+      </button>
+    </div>
+    <h1 class="font-headline text-2xl tracking-tight text-[#4a655a]">Configure Preset</h1>
+    <div class="flex items-center gap-4">
+      <button
+        class="text-[#4a655a] hover:opacity-80 transition-opacity duration-500 scale-95 active:duration-300 ease-in-out">
+        <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+      </button>
+    </div>
+  </header>
+  <main class="pt-28 pb-32 px-6 max-w-2xl mx-auto space-y-12">
+    <!-- Hero Image Module -->
+    <section class="space-y-4">
+      <label
+        class="block font-label text-[10px] uppercase tracking-widest font-semibold text-on-surface-variant px-1">Choose
+        Visual</label>
+      <div class="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 no-scrollbar">
+        <!-- Image Option 1 (Top Left) -->
+        <div
+          class="flex-none w-48 aspect-square rounded-xl overflow-hidden relative ring-2 ring-primary shadow-lg cursor-pointer group">
+          <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
+          <img alt="Serene orb of light" class="w-[200%] h-[200%] object-cover max-w-none"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFEn8gWrk3MS3kk8G-1Aynszd-JJ2sF-Av3bAfdXd9jVvqF-qMyiNkfQIRmWYxoD71cIXCJLr36nLixM5-KbCnb109l2FTKYV_EaEnzBKdFNxTKvzs27YiB_DF_P3jSa6CgMZAMJ7OeOHInJz17RpvQ8EGv88iR-0mj0GSozt_uoXJL35UK6SE4B2ZXUwyKKeWpMV-NVWRugHosvr2-gWyVFbeqYYzXvxrQls7ev0b_FxNalcyaCTvg0SrmylYd1j53QKwk5S7Wmo"
+            style="object-position: top left;" />
+          <div class="absolute top-2 right-2 bg-primary text-on-primary rounded-full p-0.5">
+            <span class="material-symbols-outlined text-sm leading-none" style="font-size: 16px;">check</span>
+          </div>
+        </div>
+        <!-- Image Option 2 (Top Right) -->
+        <div
+          class="flex-none w-48 aspect-square rounded-xl overflow-hidden relative border border-outline-variant/30 shadow-sm cursor-pointer hover:border-primary/50 transition-colors">
+          <img alt="Zen garden sand" class="w-[200%] h-[200%] object-cover max-w-none"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFEn8gWrk3MS3kk8G-1Aynszd-JJ2sF-Av3bAfdXd9jVvqF-qMyiNkfQIRmWYxoD71cIXCJLr36nLixM5-KbCnb109l2FTKYV_EaEnzBKdFNxTKvzs27YiB_DF_P3jSa6CgMZAMJ7OeOHInJz17RpvQ8EGv88iR-0mj0GSozt_uoXJL35UK6SE4B2ZXUwyKKeWpMV-NVWRugHosvr2-gWyVFbeqYYzXvxrQls7ev0b_FxNalcyaCTvg0SrmylYd1j53QKwk5S7Wmo"
+            style="object-position: top right;" />
+        </div>
+        <!-- Image Option 3 (Bottom Left) -->
+        <div
+          class="flex-none w-48 aspect-square rounded-xl overflow-hidden relative border border-outline-variant/30 shadow-sm cursor-pointer hover:border-primary/50 transition-colors">
+          <img alt="Dew covered leaf" class="w-[200%] h-[200%] object-cover max-w-none"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFEn8gWrk3MS3kk8G-1Aynszd-JJ2sF-Av3bAfdXd9jVvqF-qMyiNkfQIRmWYxoD71cIXCJLr36nLixM5-KbCnb109l2FTKYV_EaEnzBKdFNxTKvzs27YiB_DF_P3jSa6CgMZAMJ7OeOHInJz17RpvQ8EGv88iR-0mj0GSozt_uoXJL35UK6SE4B2ZXUwyKKeWpMV-NVWRugHosvr2-gWyVFbeqYYzXvxrQls7ev0b_FxNalcyaCTvg0SrmylYd1j53QKwk5S7Wmo"
+            style="object-position: bottom left;" />
+        </div>
+        <!-- Image Option 4 (Bottom Right) -->
+        <div
+          class="flex-none w-48 aspect-square rounded-xl overflow-hidden relative border border-outline-variant/30 shadow-sm cursor-pointer hover:border-primary/50 transition-colors">
+          <img alt="Meditation silhouette" class="w-[200%] h-[200%] object-cover max-w-none"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFEn8gWrk3MS3kk8G-1Aynszd-JJ2sF-Av3bAfdXd9jVvqF-qMyiNkfQIRmWYxoD71cIXCJLr36nLixM5-KbCnb109l2FTKYV_EaEnzBKdFNxTKvzs27YiB_DF_P3jSa6CgMZAMJ7OeOHInJz17RpvQ8EGv88iR-0mj0GSozt_uoXJL35UK6SE4B2ZXUwyKKeWpMV-NVWRugHosvr2-gWyVFbeqYYzXvxrQls7ev0b_FxNalcyaCTvg0SrmylYd1j53QKwk5S7Wmo"
+            style="object-position: bottom right;" />
+        </div>
+      </div>
+    </section>
+    <!-- Form Section -->
+    <section class="space-y-12">
+      <!-- Preset Name -->
+      <div class="space-y-4">
+        <label class="block font-label text-[10px] uppercase tracking-widest font-semibold text-on-surface-variant"
+          for="preset-name">Preset Name</label>
+        <input
+          class="w-full bg-surface-container border-none rounded-xl px-6 py-5 text-xl font-headline focus:ring-0 focus:bg-surface-container-lowest transition-all duration-500 text-primary"
+          id="preset-name" placeholder="Morning Stillness" type="text" value="Morning Stillness" />
+      </div>
+      <!-- Configuration Sliders & Sound Selectors -->
+      <div class="space-y-12">
+        <!-- Delay Before Start -->
+        <div class="space-y-6">
+          <div class="flex justify-between items-end">
+            <div class="space-y-1">
+              <label
+                class="block font-label text-[10px] uppercase tracking-widest font-semibold text-on-surface-variant">Delay
+                Before Start</label>
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm"
+                  data-icon="hourglass_top">hourglass_top</span>
+                <span class="font-headline text-2xl text-primary">0 <span
+                    class="text-xs font-body tracking-normal text-on-surface-variant italic">sec</span></span>
+              </div>
+            </div>
+            <div class="w-48">
+              <select
+                class="w-full bg-surface-container-low border-none rounded-lg text-xs font-medium py-2 focus:ring-0 text-on-surface-variant">
+                <option>No sound</option>
+                <option selected="">Deep Bowl</option>
+                <option>Singing Bowl</option>
+                <option>Soft Gong</option>
+              </select>
+            </div>
+          </div>
+          <div class="relative">
+            <input class="w-full h-1 bg-surface-variant rounded-full appearance-none cursor-pointer accent-primary"
+              max="60" min="0" type="range" value="0" />
+            <div
+              class="flex justify-between mt-3 text-[10px] font-semibold text-on-surface-variant tracking-widest uppercase">
+              <span>0s</span>
+              <span>60s</span>
+            </div>
+          </div>
+        </div>
+        <!-- Interval -->
+        <div class="space-y-6">
+          <div class="flex justify-between items-end">
+            <div class="space-y-1">
+              <label
+                class="block font-label text-[10px] uppercase tracking-widest font-semibold text-on-surface-variant">Interval
+                Chimes</label>
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm" data-icon="timer">timer</span>
+                <span class="font-headline text-2xl text-primary">5 <span
+                    class="text-xs font-body tracking-normal text-on-surface-variant italic">min</span></span>
+              </div>
+            </div>
+            <div class="w-48">
+              <select
+                class="w-full bg-surface-container-low border-none rounded-lg text-xs font-medium py-2 focus:ring-0 text-on-surface-variant">
+                <option>No sound</option>
+                <option>Deep Bowl</option>
+                <option selected="">Singing Bowl</option>
+                <option>Soft Gong</option>
+              </select>
+            </div>
+          </div>
+          <div class="relative">
+            <input class="w-full h-1 bg-surface-variant rounded-full appearance-none cursor-pointer accent-primary"
+              max="30" min="0" type="range" value="5" />
+            <div
+              class="flex justify-between mt-3 text-[10px] font-semibold text-on-surface-variant tracking-widest uppercase">
+              <span>None</span>
+              <span>30m</span>
+            </div>
+          </div>
+        </div>
+        <!-- Total Duration -->
+        <div class="space-y-6">
+          <div class="flex justify-between items-end">
+            <div class="space-y-1">
+              <label
+                class="block font-label text-[10px] uppercase tracking-widest font-semibold text-on-surface-variant">Total
+                Duration</label>
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-sm" data-icon="schedule">schedule</span>
+                <span class="font-headline text-2xl text-primary">20 <span
+                    class="text-xs font-body tracking-normal text-on-surface-variant italic">min</span></span>
+              </div>
+            </div>
+            <div class="w-48">
+              <select
+                class="w-full bg-surface-container-low border-none rounded-lg text-xs font-medium py-2 focus:ring-0 text-on-surface-variant">
+                <option>No sound</option>
+                <option>Deep Bowl</option>
+                <option>Singing Bowl</option>
+                <option selected="">Soft Gong</option>
+              </select>
+            </div>
+          </div>
+          <div class="relative">
+            <input class="w-full h-1 bg-surface-variant rounded-full appearance-none cursor-pointer accent-primary"
+              max="120" min="5" type="range" value="20" />
+            <div
+              class="flex justify-between mt-3 text-[10px] font-semibold text-on-surface-variant tracking-widest uppercase">
+              <span>5m</span>
+              <span>120m</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Action Buttons -->
+    <footer class="flex flex-col gap-4 pt-12">
+      <button
+        class="w-full py-5 rounded-full bg-gradient-to-r from-primary to-primary-dim text-on-primary font-bold tracking-wide shadow-md active:scale-95 transition-all duration-300">
+        Save Preset
+      </button>
+      <button
+        class="w-full py-5 rounded-full text-error font-semibold hover:bg-error-container/10 transition-colors flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined" data-icon="delete">delete</span>
+        Delete Preset
+      </button>
+    </footer>
+  </main>
+  <!-- BottomNavBar (Suppressed based on Transactional Task Focus) -->
+  <nav class="hidden">
+  </nav>
+</body>
+
+</html>

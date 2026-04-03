@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Ethereal Stillness - Quick Start</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-dim": "#405660",
+            "error-dim": "#67040d",
+            "surface-container-low": "#f5f4ed",
+            "secondary-fixed-dim": "#c0d8e4",
+            "inverse-on-surface": "#9e9d99",
+            "surface-container": "#efeee7",
+            "on-tertiary-fixed-variant": "#6d5e4f",
+            "outline-variant": "#b2b2ab",
+            "on-error-container": "#6e0a12",
+            "on-primary-container": "#3d574d",
+            "on-tertiary-fixed": "#504234",
+            "surface-container-high": "#e9e8e1",
+            "on-surface": "#31332e",
+            "surface-container-lowest": "#ffffff",
+            "on-background": "#31332e",
+            "on-tertiary-container": "#635445",
+            "secondary-fixed": "#cee6f2",
+            "on-surface-variant": "#5e6059",
+            "on-primary-fixed-variant": "#466156",
+            "on-secondary-fixed": "#2c424c",
+            "outline": "#7a7b75",
+            "primary": "#4a655a",
+            "error-container": "#fa746f",
+            "inverse-surface": "#0e0e0c",
+            "on-secondary-container": "#3f555f",
+            "on-primary": "#e5fff2",
+            "surface-bright": "#fbf9f4",
+            "secondary-container": "#cee6f2",
+            "on-tertiary": "#fff7f3",
+            "tertiary-container": "#fde7d3",
+            "surface": "#fbf9f4",
+            "surface-dim": "#dadad2",
+            "primary-dim": "#3e594e",
+            "secondary": "#4c626c",
+            "tertiary-dim": "#5f5142",
+            "surface-tint": "#4a655a",
+            "on-secondary": "#f2faff",
+            "tertiary": "#6c5c4d",
+            "error": "#a83836",
+            "background": "#fbf9f4",
+            "surface-container-highest": "#e3e3db",
+            "primary-container": "#cbe9db",
+            "tertiary-fixed-dim": "#eed9c6",
+            "tertiary-fixed": "#fde7d3",
+            "surface-variant": "#e3e3db",
+            "primary-fixed-dim": "#bedbce",
+            "on-primary-fixed": "#2a443b",
+            "on-error": "#fff7f6",
+            "on-secondary-fixed-variant": "#495f69",
+            "primary-fixed": "#cbe9db",
+            "inverse-primary": "#d7f5e7"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .breath-indicator {
+      background: radial-gradient(circle, #cbe9db 0%, transparent 70%);
+    }
+
+    body {
+      background-color: #fbf9f4;
+      color: #31332e;
+    }
+  </style>
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+  <!-- TopAppBar -->
+  <header
+    class="bg-[#fbf9f4]/70 backdrop-blur-xl fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 w-full">
+    <div class="flex items-center gap-4">
+      <button
+        class="text-[#4a655a] hover:opacity-80 transition-opacity duration-500 scale-95 active:duration-300 ease-in-out">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <span class="font-noto-serif text-xl italic text-[#4a655a]">Ethereal</span>
+    </div>
+    <div class="absolute left-1/2 -translate-x-1/2">
+      <h1 class="font-noto-serif text-2xl tracking-tight text-[#4a655a]">Reflect</h1>
+    </div>
+    <button
+      class="text-[#4a655a] hover:opacity-80 transition-opacity duration-500 scale-95 active:duration-300 ease-in-out">
+      <span class="material-symbols-outlined">settings</span>
+    </button>
+  </header>
+  <main class="pt-24 pb-32 px-6 max-w-6xl mx-auto">
+    <!-- Hero Section -->
+    <section class="mb-16 mt-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <span class="text-on-surface-variant font-label text-xs uppercase tracking-widest font-semibold">Quick
+            Start</span>
+          <h2 class="text-5xl md:text-6xl font-headline leading-tight text-on-surface">Find your <br /><span
+              class="italic">stillness</span>.</h2>
+          <p class="text-on-surface-variant text-lg max-w-md leading-relaxed">Select a curated atmosphere for your
+            practice or design a new space for your breath.</p>
+        </div>
+        <div class="relative aspect-square flex items-center justify-center">
+          <div class="absolute inset-0 breath-indicator opacity-40 rounded-full scale-110"></div>
+          <div class="w-64 h-64 rounded-full overflow-hidden shadow-[0_12px_32px_rgba(49,51,46,0.06)] z-10">
+            <img alt="zen aesthetic" class="w-full h-full object-cover"
+              data-alt="Minimalist top-down view of smooth river stones and a single green leaf on a clean white ceramic surface with soft natural light"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0nCC-c75ONfIuos1LjCnCz9r6gAr5IgP5vpp-pOtX4UBB2ql_zjEM-9wtcN5P1WMPp-zFN7SNmqlVO6c1bKhXzu61l1HMDHv6GLIcLrd9OgVjwevDZw-7b3uD_otkzefPl52Ku867FZTbuAMGbzFg2YJ3Nyfvl43FcKwgLRnnZ-3OX25CWZUd5mp4jsMJiey7kYag7e-EX6YerKHpuAEektzEv4olLHJkTevn11AzIWLRtXt67WCcE7d8khKgXF6sG32l9EBaook" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Bento Grid Presets -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Morning Metta Card -->
+      <div
+        class="group relative md:col-span-2 overflow-hidden rounded-[1.5rem] bg-surface-container-lowest shadow-[0_12px_32px_rgba(49,51,46,0.06)] transition-all duration-500 hover:-translate-y-1">
+        <div class="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity">
+          <img alt="morning metta" class="w-full h-full object-cover"
+            data-alt="Ethereal sunrise over a misty forest with soft golden rays piercing through tall pine trees in a tranquil atmosphere"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrJ-9H-YYhm-a1s7PemkSKSU1am02JOQ9bDXjQiRH_077L3bTeTAK2YrrhlyxmlxNay0_pcIr0IFTq_0x929GCfGrV3Ny4tR00fnSLdE7zWXEUmeLz06PPWuBJ7HnOo7mxmMS8rMjdcn_-hP_V2ZxKd17o4INM-2CQ3kanqF_MaRF_Jb_RACbsIHHuhG6uW4zNB47McYN2c8reSOWsL1Ek5bzB30AB4JoiGiIJlpDzRe7jzExvmWmcERJVp8BXmjg8PiOxlOhLu0U" />
+        </div>
+        <div class="relative p-8 h-80 flex flex-col justify-between">
+          <div class="flex justify-between items-start">
+            <div class="p-3 bg-primary-container rounded-full text-on-primary-container">
+              <span class="material-symbols-outlined" data-icon="sunny">sunny</span>
+            </div>
+            <span class="font-label text-xs font-bold px-3 py-1 bg-surface/80 backdrop-blur rounded-full">20 MIN</span>
+          </div>
+          <div>
+            <h3 class="text-3xl font-headline text-on-surface mb-2">Morning Metta</h3>
+            <p class="text-on-surface-variant max-w-xs text-sm">Gentle loving-kindness to awaken your heart for the day
+              ahead.</p>
+          </div>
+        </div>
+        <button
+          class="absolute bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-primary text-on-primary shadow-lg transition-transform group-hover:scale-110 active:scale-95">
+          <span class="material-symbols-outlined">play_arrow</span>
+        </button>
+      </div>
+      <!-- Quick Rest Card -->
+      <div
+        class="group relative overflow-hidden rounded-[1.5rem] bg-secondary-container shadow-[0_12px_32px_rgba(49,51,46,0.06)] transition-all duration-500 hover:-translate-y-1">
+        <div class="relative p-8 h-80 flex flex-col justify-between">
+          <div class="flex justify-between items-start">
+            <div class="p-3 bg-surface-container-lowest/50 rounded-full text-on-secondary-container">
+              <span class="material-symbols-outlined" data-icon="air">air</span>
+            </div>
+            <span
+              class="font-label text-xs font-bold px-3 py-1 bg-surface-container-lowest/30 backdrop-blur rounded-full">10
+              MIN</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-headline text-on-secondary-container mb-2">Quick Rest</h3>
+            <p class="text-on-secondary-fixed-variant text-sm">A short breathwork sequence to reset your nervous system.
+            </p>
+          </div>
+        </div>
+        <button
+          class="absolute bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-secondary-dim text-on-secondary shadow-lg transition-transform group-hover:scale-110 active:scale-95">
+          <span class="material-symbols-outlined">play_arrow</span>
+        </button>
+      </div>
+      <!-- Deep Stillness Card -->
+      <div
+        class="group relative overflow-hidden rounded-[1.5rem] bg-surface-container-lowest shadow-[0_12px_32px_rgba(49,51,46,0.06)] transition-all duration-500 hover:-translate-y-1">
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+          <img alt="deep stillness" class="w-full h-full object-cover"
+            data-alt="Minimalist ripple on a perfectly still dark lake surface under a moonlit navy blue sky, evoke quietness and depth"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBed-xH4nh3b1YIGNTzEKIj3Ev7CN_5IKXLqZlYgTk-Ddv698LhRnylRkERzAUSNTzVpQF1339E2lrnlkrrEXRHO4QXPc9Ngb7YBfEqkIpoMZoXzwET_PajGRvLRXCP0xy21y8N4gfDumuGuR-3XDevD10QlM8DXN1F1456jIN1xv6KSEgGJ9XPih4IMo0KOjrSd4dqOrYAG3qhyDFXzpvUZSzJe1x0qQDIJMiNRkuEwSEVua166v8Px0pVyjAJze5wN_LvTWQ5fUQ" />
+        </div>
+        <div class="relative p-8 h-80 flex flex-col justify-between">
+          <div class="flex justify-between items-start">
+            <div class="p-3 bg-surface-container-high rounded-full text-on-surface">
+              <span class="material-symbols-outlined" data-icon="spa">spa</span>
+            </div>
+            <span
+              class="font-label text-xs font-bold px-3 py-1 bg-surface-container-high/50 backdrop-blur rounded-full">45
+              MIN</span>
+          </div>
+          <div>
+            <h3 class="text-2xl font-headline text-on-surface mb-2">Deep Stillness</h3>
+            <p class="text-on-surface-variant text-sm">Extended silent immersion for profound mental clarity.</p>
+          </div>
+        </div>
+        <button
+          class="absolute bottom-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-primary text-on-primary shadow-lg transition-transform group-hover:scale-110 active:scale-95">
+          <span class="material-symbols-outlined">play_arrow</span>
+        </button>
+      </div>
+      <!-- Create New Preset Card -->
+      <div
+        class="group relative md:col-span-2 overflow-hidden rounded-[1.5rem] bg-transparent border-2 border-dashed border-outline-variant hover:border-primary transition-all duration-500 flex items-center justify-center h-80">
+        <div class="text-center p-8">
+          <div
+            class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-surface-container-low text-primary mb-6 transition-all duration-500 group-hover:bg-primary-container group-hover:scale-105">
+            <span class="material-symbols-outlined text-4xl" data-icon="add">add</span>
+          </div>
+          <h3 class="text-xl font-headline text-on-surface mb-2">Create New Preset</h3>
+          <p class="text-on-surface-variant text-sm max-w-xs">Customize duration, soundscape, and focus for your unique
+            practice.</p>
+        </div>
+        <!-- Invisible clickable layer -->
+        <a class="absolute inset-0 z-20 cursor-pointer" href="#"></a>
+      </div>
+    </section>
+    <!-- Secondary Section: Recent Sessions -->
+    <section class="mt-20">
+      <div class="flex justify-between items-center mb-10">
+        <h3 class="text-2xl font-headline text-on-surface">Recent Journeys</h3>
+        <button
+          class="text-primary font-label text-sm uppercase tracking-widest border-b-2 border-primary/20 hover:border-primary transition-all pb-1">View
+          All</button>
+      </div>
+      <div class="space-y-4">
+        <div
+          class="flex items-center justify-between p-6 bg-surface-container-low rounded-xl group hover:bg-surface-container transition-colors duration-300">
+          <div class="flex items-center gap-6">
+            <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-surface-variant">bedtime</span>
+            </div>
+            <div>
+              <p class="font-headline text-lg">Evening Wind-down</p>
+              <p class="text-on-surface-variant text-sm">Yesterday • 15 minutes</p>
+            </div>
+          </div>
+          <button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined">more_vert</span>
+          </button>
+        </div>
+        <div
+          class="flex items-center justify-between p-6 bg-surface-container-low rounded-xl group hover:bg-surface-container transition-colors duration-300">
+          <div class="flex items-center gap-6">
+            <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-on-surface-variant">nature_people</span>
+            </div>
+            <div>
+              <p class="font-headline text-lg">Mindful Walk</p>
+              <p class="text-on-surface-variant text-sm">Oct 24 • 30 minutes</p>
+            </div>
+          </div>
+          <button class="text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined">more_vert</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- BottomNavBar -->
+  <nav
+    class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4]/70 backdrop-blur-xl z-50 rounded-t-[1.5rem] shadow-[0_12px_32px_rgba(49,51,46,0.06)]">
+    <a class="flex flex-col items-center justify-center bg-[#cbe9db] text-[#4a655a] rounded-full px-6 py-2 transition-all duration-500"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="self_improvement">self_improvement</span>
+      <span class="font-manrope text-[10px] uppercase tracking-widest font-semibold mt-1">Reflect</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#31332e]/50 px-6 py-2 hover:text-[#4a655a] transition-all"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="spa">spa</span>
+      <span class="font-manrope text-[10px] uppercase tracking-widest font-semibold mt-1">Meditate</span>
+    </a>
+    <a class="flex flex-col items-center justify-center text-[#31332e]/50 px-6 py-2 hover:text-[#4a655a] transition-all"
+      href="#">
+      <span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+      <span class="font-manrope text-[10px] uppercase tracking-widest font-semibold mt-1">Journal</span>
+    </a>
+  </nav>
+</body>
+
+</html>

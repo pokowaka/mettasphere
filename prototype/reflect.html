@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Reflect | Metta Radiance</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#4a655a",
+            "surface": "#fbf9f4",
+            "on-primary-container": "#3d574d",
+            "primary-container": "#cbe9db",
+            "on-background": "#31332e",
+            "surface-container": "#efeee7",
+            "tertiary": "#6c5c4d",
+            "on-surface": "#31332e",
+            "secondary-fixed-dim": "#c0d8e4",
+            "primary-dim": "#3e594e",
+            "on-tertiary": "#fff7f3",
+            "error-container": "#fa746f",
+            "primary-fixed": "#cbe9db",
+            "inverse-on-surface": "#9e9d99",
+            "tertiary-dim": "#5f5142",
+            "primary": "#4a655a",
+            "background": "#fbf9f4",
+            "on-primary-fixed": "#2a443b",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f5f4ed",
+            "error": "#a83836",
+            "tertiary-fixed": "#fde7d3",
+            "tertiary-container": "#fde7d3",
+            "surface-container-highest": "#e3e3db",
+            "secondary-fixed": "#cee6f2",
+            "on-secondary-container": "#3f555f",
+            "on-tertiary-fixed": "#504234",
+            "inverse-surface": "#0e0e0c",
+            "inverse-primary": "#d7f5e7",
+            "secondary": "#4c626c",
+            "on-tertiary-fixed-variant": "#6d5e4f",
+            "surface-dim": "#dadad2",
+            "on-primary-fixed-variant": "#466156",
+            "tertiary-fixed-dim": "#eed9c6",
+            "surface-bright": "#fbf9f4",
+            "on-surface-variant": "#5e6059",
+            "error-dim": "#67040d",
+            "surface-variant": "#e3e3db",
+            "primary-fixed-dim": "#bedbce",
+            "on-secondary-fixed": "#2c424c",
+            "on-error-container": "#6e0a12",
+            "surface-container-high": "#e9e8e1",
+            "on-error": "#fff7f6",
+            "on-tertiary-container": "#635445",
+            "on-secondary-fixed-variant": "#495f69",
+            "outline": "#7a7b75",
+            "secondary-dim": "#405660",
+            "on-secondary": "#f2faff",
+            "secondary-container": "#cee6f2",
+            "outline-variant": "#b2b2ab",
+            "on-primary": "#e5fff2"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    .glass-panel {
+      background: rgba(251, 249, 244, 0.7);
+      backdrop-filter: blur(20px);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .custom-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      background: #4a655a;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(74, 101, 90, 0.2);
+    }
+
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+
+<body
+  class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container leading-relaxed">
+  <!-- TopAppBar -->
+  <header
+    class="fixed top-0 w-full z-50 bg-[#fbf9f4]/70 dark:bg-[#1a1c19]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+    <button class="hover:opacity-70 transition-opacity duration-500 active:scale-95 text-[#4a655a] dark:text-[#cbe9db]">
+      <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+    </button>
+    <h1 class="font-headline italic text-lg text-[#4a655a] dark:text-[#cbe9db]">Reflect</h1>
+    <button class="hover:opacity-70 transition-opacity duration-500 active:scale-95 text-[#4a655a] dark:text-[#cbe9db]">
+      <span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+    </button>
+    <!-- Separation Gradient -->
+    <div
+      class="absolute bottom-[-20px] left-0 w-full h-5 bg-gradient-to-b from-[#fbf9f4] to-transparent pointer-events-none">
+    </div>
+  </header>
+  <main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-16">
+    <!-- Header Section -->
+    <section class="text-center space-y-4">
+      <h2 class="font-headline text-4xl md:text-5xl font-bold tracking-tight text-primary">Stillness</h2>
+      <p class="text-on-surface-variant font-body max-w-xs mx-auto opacity-80">Take a moment to weave your practice into
+        the fabric of your day.</p>
+    </section>
+    <!-- 1. The Starting Point (Metta Radiance) -->
+    <section class="space-y-8">
+      <div class="flex items-center gap-3">
+        <span class="w-12 h-[1px] bg-outline-variant"></span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-outline">The Starting Point</span>
+      </div>
+      <div class="bg-surface-container-low rounded-xl p-8 space-y-8">
+        <div class="space-y-4">
+          <h3 class="font-headline text-2xl text-primary leading-tight">Initial Feeling</h3>
+          <p class="text-on-surface-variant text-sm">How would you rate the warm 'glow' or feeling of Metta in the
+            center of your chest?</p>
+        </div>
+        <div class="relative pt-6">
+          <input class="w-full h-1 bg-surface-variant rounded-full appearance-none cursor-pointer custom-range" max="10"
+            min="1" step="1" type="range" value="5" />
+          <div class="flex justify-between mt-6 px-1">
+            <span class="text-[10px] font-label text-outline uppercase tracking-wider">Subtle</span>
+            <span class="text-[10px] font-label text-outline uppercase tracking-wider">Radiant</span>
+          </div>
+          <!-- Radiant Bloom Effect -->
+          <div
+            class="absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary-container/30 blur-3xl rounded-full -z-10 animate-pulse">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 2. The 6R Process (The Core Practice) -->
+    <section class="space-y-8">
+      <div class="flex items-center gap-3">
+        <span class="w-12 h-[1px] bg-outline-variant"></span>
+        <span class="font-label text-[10px] tracking-widest uppercase text-outline">The 6R Process</span>
+      </div>
+      <div class="grid grid-cols-1 gap-6">
+        <!-- The Five Hindrances (Nivarana) -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(49,51,46,0.06)] space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary" data-icon="cloud_off">cloud_off</span>
+            <h4 class="font-headline text-lg text-on-surface">The Five Hindrances (Nivarana)</h4>
+          </div>
+          <p class="text-sm text-on-surface-variant">Check any that you observed during your session. Remember, these
+            are impersonal mental states—not "your" faults.</p>
+          <div class="space-y-3">
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Hindrance
+                  1</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span class="font-bold">Sensual
+                    Desire (Kāmacchanda):</span> The mind "reaching out" or pulling toward a pleasant memory, a future
+                  plan, or a physical craving.</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Hindrance
+                  2</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span class="font-bold">Ill-Will
+                    / Aversion (Vyāpāda):</span> The mind "pushing away" or resisting the present moment (e.g.,
+                  irritation at sounds, leg pain, or self-judgment).</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Hindrance
+                  3</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span class="font-bold">Sloth and
+                    Torpor (Thīna-middha):</span> The mind "sinking" into heaviness, sleepiness, or a "foggy" lack of
+                  clarity.</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Hindrance
+                  4</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span
+                    class="font-bold">Restlessness and Regret (Uddhacca-kukkucca):</span> The mind "spinning" or
+                  vibrating with excess energy, worry, or "monkey mind" loops.</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Hindrance
+                  5</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span class="font-bold">Skeptical
+                    Doubt (Vicikicchā):</span> The mind "wavering" or paralyzed by uncertainty (e.g., "Am I doing this
+                  right? Is there a better way?").</p>
+              </div>
+            </label>
+          </div>
+        </div>
+        <!-- Recognition -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(49,51,46,0.06)] space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary" data-icon="visibility">visibility</span>
+            <h4 class="font-headline text-lg text-on-surface">Recognition</h4>
+          </div>
+          <p class="text-sm text-on-surface-variant">At what stage did you catch the distraction before returning to
+            Metta?</p>
+          <div class="space-y-3">
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  1</span>
+                <span class="text-[10px] font-label text-outline/50 italic">Post-event</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">I was lost for a while before I
+                noticed</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  2</span>
+                <span class="text-[10px] font-label text-outline/50 italic">During the event</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">I caught the thought while it was
+                playing out</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  3</span>
+                <span class="text-[10px] font-label text-outline/50 italic">At the start</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">I caught the thought as soon as it
+                began</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  4</span>
+                <span class="text-[10px] font-label text-outline/50 italic">Pre-thought</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">I felt the "tightness" in my head
+                before the thought formed</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-primary bg-primary-container/20 shadow-sm group">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[10px] font-label tracking-widest uppercase text-primary-dim">Level 5</span>
+                <span class="text-[10px] font-label text-primary-dim/60 italic">The Flicker</span>
+              </div>
+              <p class="text-sm text-on-surface">I saw the intention to move before any tension arose</p>
+            </button>
+          </div>
+        </div>
+        <!-- The Release Step -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(49,51,46,0.06)] space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary" data-icon="leak_remove">leak_remove</span>
+            <h4 class="font-headline text-lg text-on-surface">The Release Step</h4>
+          </div>
+          <p class="text-sm text-on-surface-variant">This step is about the "Mental Let-Go" before you physically relax.
+            How did you handle the distraction once you recognized it?</p>
+          <div class="space-y-3">
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Option
+                  A</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span
+                    class="font-bold">Suppression (The Push):</span> I tried to "kick" the thought out or quickly looked
+                  away from it because it was "bad."</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Option
+                  B</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span
+                    class="font-bold">Analytical (The Story):</span> I started thinking about the distraction, trying to
+                  figure out why it happened.</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+              <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span
+                  class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Option
+                  C</span>
+                <p class="text-sm text-on-surface-variant group-hover:text-on-surface"><span class="font-bold">Passive
+                    (The Drift):</span> I let the thought stay and didn't really move my attention; I just sat with the
+                  distraction.</p>
+              </div>
+            </label>
+            <label
+              class="flex items-start gap-4 p-4 rounded-xl border border-primary bg-primary-container/20 shadow-sm group cursor-pointer">
+              <input checked="" class="mt-1 rounded border-primary text-primary focus:ring-primary/20 w-5 h-5"
+                type="checkbox" />
+              <div class="space-y-1">
+                <span class="block text-[10px] font-label tracking-widest uppercase text-primary-dim">Option D</span>
+                <p class="text-sm text-on-surface"><span class="font-bold">The 6R Release (The Let-Go):</span> I allowed
+                  the thought to be there, but I stopped "giving it fuel."</p>
+              </div>
+            </label>
+          </div>
+        </div>
+        <!-- Relaxation -->
+        <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(49,51,46,0.06)] space-y-6">
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-primary" data-icon="spa">spa</span>
+            <h4 class="font-headline text-lg text-on-surface">Relaxation</h4>
+          </div>
+          <p class="text-sm text-on-surface-variant">When you recognized a distraction, how did you "Relax"?</p>
+          <div class="space-y-3">
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  1</span>
+                <span class="text-[10px] font-label text-outline/50 italic">Conceptual</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">I thought the word 'relax' but
+                didn't feel any physical change</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  2</span>
+                <span class="text-[10px] font-label text-outline/50 italic">Surface</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">I relaxed my shoulders, jaw, or
+                brow</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-primary bg-primary-container/20 shadow-sm group">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-[10px] font-label tracking-widest uppercase text-primary-dim">Level 3</span>
+                <span class="text-[10px] font-label text-primary-dim/60 italic">Deep</span>
+              </div>
+              <p class="text-sm text-on-surface">I felt a release of 'pressure' inside my head</p>
+            </button>
+            <button
+              class="w-full text-left p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group">
+              <div class="flex justify-between items-center mb-1">
+                <span
+                  class="text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary-dim">Level
+                  4</span>
+                <span class="text-[10px] font-label text-outline/50 italic">Total</span>
+              </div>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">The whole body felt like it dropped
+                into profound ease</p>
+            </button>
+          </div>
+        </div>
+        <!-- The Smile -->
+        <div class="bg-surface-container-high rounded-xl p-6 space-y-6">
+          <div class="flex items-start justify-between gap-4">
+            <div class="space-y-2">
+              <h4 class="font-headline text-xl text-primary">The Smile</h4>
+              <p class="text-sm text-on-surface-variant">What was the quality of your "Re-smile"?</p>
+            </div>
+            <span class="material-symbols-outlined text-3xl text-primary/40"
+              data-icon="sentiment_satisfied">sentiment_satisfied</span>
+          </div>
+          <div class="space-y-3">
+            <button
+              class="w-full text-left p-4 bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all group">
+              <span
+                class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary mb-1">Level
+                1: Mechanical</span>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">Moved lips, but felt 'fake'; mood
+                stayed the same</p>
+            </button>
+            <button
+              class="w-full text-left p-4 bg-surface-container-lowest rounded-xl border border-primary shadow-sm group">
+              <span class="block text-[10px] font-label tracking-widest uppercase text-primary mb-1">Level 2:
+                Friendly</span>
+              <p class="text-sm text-on-surface">Felt like seeing a friend; meditation felt a little lighter</p>
+            </button>
+            <button
+              class="w-full text-left p-4 bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all group">
+              <span
+                class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary mb-1">Level
+                3: Radiant</span>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">Eyes felt like they were smiling;
+                mind became sunny and bright</p>
+            </button>
+            <button
+              class="w-full text-left p-4 bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary transition-all group">
+              <span
+                class="block text-[10px] font-label tracking-widest uppercase text-outline group-hover:text-primary mb-1">Level
+                4: Jhanic Joy</span>
+              <p class="text-sm text-on-surface-variant group-hover:text-on-surface">Triggered tingling, cool energy, or
+                zest (Piti)</p>
+            </button>
+          </div>
+          <div class="pt-4 space-y-4">
+            <p class="text-sm font-headline text-primary">How long did the "Smile" last?</p>
+            <div class="space-y-2">
+              <label
+                class="flex items-center gap-3 p-3 bg-surface-container-lowest/50 rounded-lg cursor-pointer hover:bg-surface-container-lowest transition-colors">
+                <input class="w-4 h-4 text-primary focus:ring-primary/20 border-outline-variant" name="duration"
+                  type="radio" />
+                <span class="text-sm text-on-surface-variant">It vanished the moment I went back to the Metta</span>
+              </label>
+              <label
+                class="flex items-center gap-3 p-3 bg-surface-container-lowest/50 rounded-lg cursor-pointer hover:bg-surface-container-lowest transition-colors">
+                <input checked="" class="w-4 h-4 text-primary focus:ring-primary/20 border-outline-variant"
+                  name="duration" type="radio" />
+                <span class="text-sm text-on-surface">It stayed as a 'background glow' while I continued</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <!-- Post-Meditation Weather Report -->
+        <section class="space-y-8">
+          <div class="flex items-center gap-3">
+            <span class="w-12 h-[1px] bg-outline-variant"></span>
+            <span class="font-label text-[10px] tracking-widest uppercase text-outline">Observation</span>
+          </div>
+          <div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_32px_rgba(49,51,46,0.06)] space-y-8">
+            <div class="space-y-2 text-center md:text-left">
+              <h4 class="font-headline text-2xl text-primary">Post-Meditation Weather Report</h4>
+              <p class="text-sm text-on-surface-variant italic">How does your mind and body feel right now?</p>
+            </div>
+            <!-- Physical Sensations -->
+            <div class="space-y-4">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-xl"
+                  data-icon="accessibility_new">accessibility_new</span>
+                <h5 class="font-label text-[11px] font-bold tracking-widest uppercase text-outline">Physical Sensations
+                </h5>
+                <span class="text-[10px] text-outline/60 lowercase italic">(select all that apply)</span>
+              </div>
+              <div class="space-y-3">
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Zest/Energy</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">I feel "bubbly," light, or have a
+                      pleasant tingling/goosebumps. <span class="italic text-outline/70">(1st/2nd Jhana - Piti)</span>
+                    </p>
+                  </div>
+                </label>
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Deep Comfort</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">I feel a cool, calm, and steady sense of
+                      "okay-ness" in my body; like I could sit forever. <span class="italic text-outline/70">(3rd Jhana
+                        - Sukha)</span></p>
+                  </div>
+                </label>
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Weightlessness</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">My body feels very transparent or like it
+                      has disappeared entirely. <span class="italic text-outline/70">(4th Jhana/Boundless States)</span>
+                    </p>
+                  </div>
+                </label>
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Heaviness</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">I feel a bit groggy or physically
+                      "thick." <span class="italic text-outline/70">(Indicates a need for more "Re-smile")</span></p>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <!-- Mental State -->
+            <div class="space-y-4 pt-2">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-xl" data-icon="psychology">psychology</span>
+                <h5 class="font-label text-[11px] font-bold tracking-widest uppercase text-outline">Mental State</h5>
+                <span class="text-[10px] text-outline/60 lowercase italic">(select all that apply)</span>
+              </div>
+              <div class="space-y-3">
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Unified/Still</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">My mind feels like a still forest pool;
+                      it isn't "jumping" at all. <span class="italic text-outline/70">(Ekaggata/Unification)</span></p>
+                  </div>
+                </label>
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Expansive</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">I feel like my Metta or my awareness has
+                      no boundaries; it fills the room. <span
+                        class="italic text-outline/70">(Appamanna/Boundless)</span></p>
+                  </div>
+                </label>
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Equanimous</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">I feel neutral, balanced, and remarkably
+                      "flat" (in a good way). Neither excited nor sad. <span
+                        class="italic text-outline/70">(Upekkha)</span></p>
+                  </div>
+                </label>
+                <label
+                  class="flex items-start gap-4 p-4 rounded-xl border border-outline-variant hover:border-primary hover:bg-primary-container/20 transition-all duration-300 group cursor-pointer">
+                  <input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-5 h-5"
+                    type="checkbox" />
+                  <div class="space-y-1">
+                    <span class="block text-sm font-bold text-on-surface group-hover:text-primary">Bright</span>
+                    <p class="text-xs text-on-surface-variant leading-relaxed">My internal vision or "mind's eye" feels
+                      very light, as if a lamp was turned on. <span class="italic text-outline/70">(Aloka-sanna)</span>
+                    </p>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Ease (Effort vs Flow) -->
+        <div class="bg-surface-container-low rounded-xl p-1 flex flex-col md:flex-row">
+          <button
+            class="flex-1 py-4 px-6 rounded-xl text-center group transition-all duration-500 hover:bg-surface-container-lowest">
+            <span class="block font-label text-[10px] tracking-widest uppercase text-outline mb-1">Tendency</span>
+            <span
+              class="block font-headline text-xl text-on-surface-variant group-hover:text-primary transition-colors">Fight</span>
+            <p class="text-[10px] text-outline italic">effortful &amp; striving</p>
+          </button>
+          <div class="w-px h-auto bg-outline-variant/30 hidden md:block"></div>
+          <button
+            class="flex-1 py-4 px-6 rounded-xl text-center bg-primary-container text-on-primary-container shadow-sm">
+            <span
+              class="block font-label text-[10px] tracking-widest uppercase text-on-primary-container/60 mb-1">Tendency</span>
+            <span class="block font-headline text-xl font-bold">Flow</span>
+            <p class="text-[10px] text-on-primary-container/60 italic">gentle let-go</p>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Final Action -->
+    <div class="pt-8 flex flex-col items-center space-y-6">
+      <button
+        class="w-full py-4 bg-gradient-to-r from-primary to-primary-dim text-on-primary font-body font-semibold rounded-full shadow-lg hover:shadow-primary/20 transition-all duration-500 active:scale-[0.98]">
+        Save Reflection
+      </button>
+      <button
+        class="text-on-surface-variant font-label text-sm border-b-2 border-surface-tint border-opacity-20 pb-1 hover:border-opacity-100 transition-all">
+        Skip for now
+      </button>
+    </div>
+  </main>
+  <!-- BottomNavBar -->
+  <nav
+    class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbf9f4]/70 dark:bg-[#1a1c19]/70 backdrop-blur-xl z-50 rounded-t-[1.5rem] shadow-[0_-12px_32px_rgba(49,51,46,0.06)]">
+    <div
+      class="flex flex-col items-center justify-center text-[#747974] px-5 py-1.5 hover:text-[#4a655a] transition-colors duration-500">
+      <span class="material-symbols-outlined mb-1" data-icon="auto_awesome">auto_awesome</span>
+      <span class="font-manrope text-[10px] tracking-widest uppercase">Journey</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center text-[#747974] px-5 py-1.5 hover:text-[#4a655a] transition-colors duration-500">
+      <span class="material-symbols-outlined mb-1" data-icon="self_improvement">self_improvement</span>
+      <span class="font-manrope text-[10px] tracking-widest uppercase">Practice</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center bg-[#4a655a] text-[#e5fff2] rounded-full px-5 py-1.5 active:scale-98 transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1)">
+      <span class="material-symbols-outlined mb-1" data-icon="psychology">psychology</span>
+      <span class="font-manrope text-[10px] tracking-widest uppercase">Reflect</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center text-[#747974] px-5 py-1.5 hover:text-[#4a655a] transition-colors duration-500">
+      <span class="material-symbols-outlined mb-1" data-icon="edit_note">edit_note</span>
+      <span class="font-manrope text-[10px] tracking-widest uppercase">Journal</span>
+    </div>
+  </nav>
+  <!-- Decorative Organic Shape -->
+  <div
+    class="fixed top-[15%] -left-[10%] w-[50%] aspect-square bg-primary-container/10 blur-[120px] rounded-full -z-20 pointer-events-none">
+  </div>
+  <div
+    class="fixed bottom-[10%] -right-[5%] w-[40%] aspect-square bg-secondary-container/10 blur-[100px] rounded-full -z-20 pointer-events-none">
+  </div>
+</body>
+
+</html>
