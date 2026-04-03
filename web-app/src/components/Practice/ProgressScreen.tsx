@@ -9,7 +9,6 @@ const ProgressScreen: React.FC = () => {
 
   const sessionCount = reflections.length
   const avgRadiance = sessionCount > 0 ? (reflections.reduce((acc, r) => acc + r.mettaRadiance, 0) / sessionCount).toFixed(1) : 0
-  const flowTendency = sessionCount > 0 ? ((reflections.filter(r => r.tendency === 'flow').length / sessionCount) * 100).toFixed(0) : 0
   const precisionRelease = sessionCount > 0 ? ((reflections.filter(r => r.releaseType === '6r').length / sessionCount) * 100).toFixed(0) : 0
 
   return (
@@ -77,14 +76,10 @@ const ProgressScreen: React.FC = () => {
         </section>
 
         {/* Stats Cards */}
-        <section className="md:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <section className="md:col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-surface-container-low rounded-3xl p-8 space-y-1 shadow-sm border border-outline-variant/10">
             <p className="text-[10px] font-bold uppercase tracking-widest text-outline">Avg Radiance</p>
             <p className="font-headline text-2xl text-primary">{avgRadiance}/10</p>
-          </div>
-          <div className="bg-surface-container-low rounded-3xl p-8 space-y-1 shadow-sm border border-outline-variant/10">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-outline">Flow Tendency</p>
-            <p className="font-headline text-2xl text-primary">{flowTendency}%</p>
           </div>
           <div className="bg-surface-container-low rounded-3xl p-8 space-y-1 shadow-sm border border-outline-variant/10">
             <p className="text-[10px] font-bold uppercase tracking-widest text-outline">6R Precision</p>

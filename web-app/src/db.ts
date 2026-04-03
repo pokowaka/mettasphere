@@ -25,7 +25,6 @@ export interface Reflection {
   smileDuration: string; // 'vanished' | 'stayed'
   physicalSensations: string[]; // ids of sensations
   mentalStates: string[]; // ids of mental states
-  tendency: 'fight' | 'flow';
 }
 
 const db = new Dexie('MettasphereDB') as Dexie & {
