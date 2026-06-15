@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import StartScreen from './components/Practice/StartScreen'
 import TimerScreen from './components/Practice/TimerScreen'
 import PresetForm from './components/Practice/PresetForm'
@@ -6,13 +6,17 @@ import ReflectScreen from './components/Practice/ReflectScreen'
 import ProgressScreen from './components/Practice/ProgressScreen'
 import HistoryScreen from './components/Practice/HistoryScreen'
 import NavShell from './components/Layout/NavShell'
-import { Preset } from './db'
+import { Preset, syncDefaultPresets } from './db'
 
 export type Screen = 'start' | 'timer' | 'preset' | 'progress' | 'reflect' | 'history'
 
 function App() {
   const [currentScreen, setCurrentScreen] = useState<Screen>('start')
   const [selectedPreset, setSelectedPreset] = useState<Preset | null>(null)
+
+  useEffect(() => {
+    syncDefaultPresets()
+  }, [])
 
   const handleStartTimer = (preset: Preset) => {
     setSelectedPreset(preset)

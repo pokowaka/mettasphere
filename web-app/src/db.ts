@@ -90,3 +90,59 @@ db.on('populate', () => {
 });
 
 export { db };
+
+export const syncDefaultPresets = async () => {
+  const allPresets = await db.presets.toArray()
+  const hasOldPresets = allPresets.some(p => p.name === 'Quick Rest' || p.name === 'Quick Test' || (p.name === 'Morning Metta' && p.totalMinutes === 20))
+  
+  if (allPresets.length === 0 || hasOldPresets) {
+    console.log("Syncing default presets to match Android...")
+    await db.presets.clear()
+    await db.presets.bulkAdd([
+      {
+        name: "Learning the 6Rs (15m)",
+        visual: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+        delaySeconds: 0,
+        intervalMinutes: 5,
+        totalMinutes: 15,
+        startSound: "Singing Bowl",
+        intervalSound: "Woodblock",
+        endSound: "Gong",
+        showDetailedReflection: true
+      },
+      {
+        name: "Learning the 6Rs (30m)",
+        visual: "https://images.unsplash.com/photo-1500674425917-06385469493a",
+        delaySeconds: 0,
+        intervalMinutes: 10,
+        totalMinutes: 30,
+        startSound: "Singing Bowl",
+        intervalSound: "Woodblock",
+        endSound: "Gong",
+        showDetailedReflection: true
+      },
+      {
+        name: "Morning Metta (30m)",
+        visual: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+        delaySeconds: 0,
+        intervalMinutes: 10,
+        totalMinutes: 30,
+        startSound: "Singing Bowl",
+        intervalSound: "Woodblock",
+        endSound: "Gong",
+        showDetailedReflection: false
+      },
+      {
+        name: "Deep Presence (60m)",
+        visual: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+        delaySeconds: 0,
+        intervalMinutes: 30,
+        totalMinutes: 60,
+        startSound: "Singing Bowl",
+        intervalSound: "Woodblock",
+        endSound: "Gong",
+        showDetailedReflection: false
+      }
+    ])
+  }
+}
