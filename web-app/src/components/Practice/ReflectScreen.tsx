@@ -17,18 +17,12 @@ const HINDRANCES = [
   { id: 'doubt', name: 'Skeptical Doubt (Vicikicchā)', description: 'The mind "wavering" or paralyzed by uncertainty.' },
 ]
 
-const PHYSICAL = [
-  { id: 'zest', name: 'Zest/Energy (Piti)', description: 'Bubbly, light, or pleasant tingling.' },
-  { id: 'comfort', name: 'Deep Comfort (Sukha)', description: 'Cool, calm, steady sense of "okay-ness".' },
-  { id: 'light', name: 'Weightlessness', description: 'Body feels transparent or disappeared.' },
-  { id: 'heavy', name: 'Heaviness', description: 'Groggy or physically "thick".' },
-]
-
-const MENTAL = [
-  { id: 'unified', name: 'Unified/Still', description: 'Mind like a still forest pool; not jumping.' },
-  { id: 'expansive', name: 'Expansive', description: 'Awareness has no boundaries; fills the room.' },
-  { id: 'equanimous', name: 'Equanimous', description: 'Neutral, balanced, remarkably "flat" (in a good way).' },
-  { id: 'bright', name: 'Bright', description: 'Internal vision feels very light/bright.' },
+const RADIANCE_LEVELS = [
+  { level: 1, title: "Subtle/None", quote: "I don't feel it right now.", companion: "A quiet space. Even without physical warmth, the simple intention of goodwill is planting seeds of peace in your mind. It is enough just to sit." },
+  { level: 2, title: "Heart Glow", quote: "I felt a soft glow in my heart.", companion: "A gentle spark. A warm center of friendliness is settling in the heart space. Rest your awareness here." },
+  { level: 3, title: "Body Ease", quote: "I felt it flow through my whole body.", companion: "Filling the vessel. The warm sensation of comfort spreads outward, soaking the limbs and torso in calm ease. It might feel like the body and limbs are starting to disappear." },
+  { level: 4, title: "Head Center", quote: "I felt balanced in my head, body gone.", companion: "A quiet stillness. The warmth settles in the head space, and it feels like the physical body is not really there anymore." },
+  { level: 5, title: "Boundless", quote: "I felt boundless, radiating in all directions.", companion: "Boundless presence. Goodwill radiates outward infinitely, dissolving boundaries in unlimited friendliness for all beings." }
 ]
 
 const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip }) => {
@@ -39,13 +33,10 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip })
   const [release, setRelease] = useState<'suppression' | 'analytical' | 'passive' | '6r'>('6r')
   const [relaxation, setRelaxation] = useState(1)
   const [smileQuality, setSmileQuality] = useState(1)
-  const [smileDuration, setSmileDuration] = useState('vanished')
   const [flowLevel, setFlowLevel] = useState(1)
-  const [physical, setPhysical] = useState<string[]>([])
-  const [mental, setMental] = useState<string[]>([])
 
   const showDetailed = preset ? preset.showDetailedReflection : true
-  const totalSteps = showDetailed ? 8 : 3
+  const totalSteps = showDetailed ? 7 : 3
 
   const handleSave = async () => {
     await db.reflections.add({
@@ -57,9 +48,9 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip })
       relaxationLevel: relaxation,
       smileQuality: smileQuality,
       flowLevel: flowLevel,
-      smileDuration,
-      physicalSensations: physical,
-      mentalStates: mental,
+      smileDuration: 'vanished',
+      physicalSensations: [],
+      mentalStates: [],
     })
     onSave()
   }
@@ -88,29 +79,43 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip })
 
   const renderStep = () => {
     switch (step) {
-      case 0:
+      case 0: {
+        const currentLevel = RADIANCE_LEVELS.find(l => l.level === radiance) || RADIANCE_LEVELS[0]
         return (
           <section className="space-y-8 animate-in fade-in slide-in-from-right duration-500">
-            <div className="text-center space-y-4 mb-12">
+            <div className="text-center space-y-4 mb-8">
               <h2 className="font-headline text-4xl font-bold text-primary">Initial Feeling</h2>
               <p className="text-on-surface-variant text-sm">How would you rate the warm 'glow' or feeling of Metta in the center of your chest?</p>
             </div>
-            <div className="bg-surface-container-low rounded-3xl p-8 space-y-8 shadow-sm">
-              <div className="relative pt-6">
-                <input 
-                  type="range" min="1" max="10" value={radiance}
-                  onChange={(e) => setRadiance(parseInt(e.target.value))}
-                  className="w-full h-1 bg-surface-variant rounded-full appearance-none cursor-pointer accent-primary" 
-                />
-                <div className="flex justify-between mt-6 px-1">
-                  <span className="text-[10px] font-label text-outline uppercase tracking-wider">Subtle</span>
-                  <span className="text-[10px] font-label text-outline uppercase tracking-wider">Radiant</span>
-                </div>
-                <div className={`absolute -top-12 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary-container/30 blur-3xl rounded-full -z-10 transition-opacity duration-1000 ${radiance > 5 ? 'opacity-100 animate-pulse' : 'opacity-0'}`}></div>
-              </div>
+            
+            {/* 5 Circle Buttons */}
+            <div className="flex justify-center gap-4 py-4">
+              {[1, 2, 3, 4, 5].map((i) => {
+                const isSelected = radiance === i
+                return (
+                  <button
+                    key={i}
+                    onClick={() => setRadiance(i)}
+                    className={`w-14 h-14 rounded-full flex items-center justify-center font-headline text-xl font-bold border transition-all ${
+                      isSelected 
+                        ? 'bg-primary text-on-primary border-primary shadow-lg ring-4 ring-primary/5' 
+                        : 'bg-surface-container-low border-outline-variant/30 text-on-surface-variant hover:border-primary/50'
+                    }`}
+                  >
+                    {i}
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Description Card */}
+            <div className="bg-primary-container/20 rounded-3xl p-8 border border-outline-variant/10 text-center space-y-4 transition-all duration-300">
+              <p className="font-headline text-lg font-bold text-on-surface">"{currentLevel.quote}"</p>
+              <p className="text-sm text-primary italic leading-relaxed">{currentLevel.companion}</p>
             </div>
           </section>
         )
+      }
       case 1:
         return (
           <section className="space-y-8 animate-in fade-in slide-in-from-right duration-500">
@@ -254,25 +259,6 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip })
                 </button>
               ))}
             </div>
-            <div className="pt-8 space-y-6">
-              <p className="text-base font-headline text-primary text-center">How long did the "Smile" last?</p>
-              <div className="flex flex-col gap-3">
-                {[
-                  { id: 'vanished', label: 'It vanished as I returned to the Metta' },
-                  { id: 'stayed', label: 'It stayed as a background glow' },
-                ].map(d => (
-                  <label key={d.id} className={`flex items-center gap-4 p-5 rounded-3xl cursor-pointer transition-all ${smileDuration === d.id ? 'bg-primary-container/30 border-primary border' : 'bg-surface-container-low border-transparent border hover:bg-surface-container-high'}`}>
-                    <input 
-                      type="radio" name="duration"
-                      checked={smileDuration === d.id}
-                      onChange={() => setSmileDuration(d.id)}
-                      className="w-5 h-5 text-primary focus:ring-primary/20 border-outline-variant" 
-                    />
-                    <span className={`text-base ${smileDuration === d.id ? 'text-on-surface font-semibold' : 'text-on-surface-variant'}`}>{d.label}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
           </section>
         )
       case 6:
@@ -298,57 +284,6 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip })
                   <p className={`text-base ${flowLevel === r.level ? 'text-on-surface font-semibold' : 'text-on-surface-variant'}`}>{r.desc}</p>
                 </button>
               ))}
-            </div>
-          </section>
-        )
-      case 7:
-        return (
-          <section className="space-y-12 animate-in fade-in slide-in-from-right duration-500">
-            <div className="text-center space-y-4 mb-12">
-              <h2 className="font-headline text-4xl font-bold text-primary">Weather Report</h2>
-              <p className="text-sm text-on-surface-variant">How do you feel right now?</p>
-            </div>
-            
-            <div className="space-y-10">
-              <div className="space-y-6">
-                <h5 className="font-label text-xs font-bold tracking-widest uppercase text-outline px-2">Physical Sensations</h5>
-                <div className="grid grid-cols-1 gap-3">
-                  {PHYSICAL.map(p => (
-                    <label key={p.id} className={`flex items-start gap-4 p-5 rounded-3xl border transition-all cursor-pointer ${physical.includes(p.id) ? 'border-primary bg-primary-container/20' : 'border-outline-variant hover:border-primary bg-surface-container-lowest'}`}>
-                      <input 
-                        type="checkbox" 
-                        checked={physical.includes(p.id)}
-                        onChange={() => toggleItem(physical, setPhysical, p.id)}
-                        className="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-6 h-6" 
-                      />
-                      <div>
-                        <span className={`block text-base font-bold ${physical.includes(p.id) ? 'text-primary' : 'text-on-surface'}`}>{p.name}</span>
-                        <p className="text-sm text-on-surface-variant leading-relaxed">{p.description}</p>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-6">
-                <h5 className="font-label text-xs font-bold tracking-widest uppercase text-outline px-2">Mental States</h5>
-                <div className="grid grid-cols-1 gap-3">
-                  {MENTAL.map(m => (
-                    <label key={m.id} className={`flex items-start gap-4 p-5 rounded-3xl border transition-all cursor-pointer ${mental.includes(m.id) ? 'border-primary bg-primary-container/20' : 'border-outline-variant hover:border-primary bg-surface-container-lowest'}`}>
-                      <input 
-                        type="checkbox" 
-                        checked={mental.includes(m.id)}
-                        onChange={() => toggleItem(mental, setMental, m.id)}
-                        className="mt-1 rounded border-outline-variant text-primary focus:ring-primary/20 w-6 h-6" 
-                      />
-                      <div>
-                        <span className={`block text-base font-bold ${mental.includes(m.id) ? 'text-primary' : 'text-on-surface'}`}>{m.name}</span>
-                        <p className="text-sm text-on-surface-variant leading-relaxed">{m.description}</p>
-                      </div>
-                    </label>
-                  ))}
-                </div>
-              </div>
             </div>
           </section>
         )
