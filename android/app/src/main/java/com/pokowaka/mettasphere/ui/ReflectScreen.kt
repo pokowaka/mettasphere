@@ -488,7 +488,7 @@ private fun ReleaseStep(selectedValue: String, onSelect: (String) -> Unit) {
 @Composable
 private fun RelaxationStep(selectedValue: Int, onSelect: (Int) -> Unit) {
     val options = listOf(
-        SelectionItem(1, "Conceptual", "I thought 'relax' but didn't feel physical change"),
+        SelectionItem(1, "No Relaxation", "I didn't relax, i brought my mind back immediately"),
         SelectionItem(2, "Surface", "I relaxed my shoulders, jaw, or brow"),
         SelectionItem(3, "Deep", "I felt a release of 'pressure' inside my head"),
         SelectionItem(4, "Total", "The whole body felt dropped into profound ease")
