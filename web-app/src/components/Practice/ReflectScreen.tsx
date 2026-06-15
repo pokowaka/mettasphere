@@ -234,10 +234,9 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
             </div>
             <div className="grid grid-cols-1 gap-4">
               {[
-                { level: 1, label: 'Mechanical', desc: "Lips moved, but felt 'fake'; mood unchanged." },
+                { level: 1, label: 'No Smile', desc: "I forgot to smile" },
                 { level: 2, label: 'Friendly', desc: 'Felt like seeing a friend; meditation felt lighter.' },
-                { level: 3, label: 'Radiant', desc: 'Eyes felt like they were smiling; mind became sunny.' },
-                { level: 4, label: 'Jhanic Joy', desc: 'Triggered tingling, cool energy, or zest (Piti).' },
+                { level: 3, label: 'Radiant', desc: "Eyes felt like they were smiling; mind became sunny." },
               ].map(r => (
                 <button 
                   key={r.level}

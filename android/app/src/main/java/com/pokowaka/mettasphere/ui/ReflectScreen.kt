@@ -553,10 +553,9 @@ private fun SmileStep(
     onQualitySelect: (Int) -> Unit
 ) {
     val qualities = listOf(
-        SelectionItem(1, "Mechanical", "Lips moved, but felt 'fake'; mood unchanged."),
+        SelectionItem(1, "No Smile", "I forgot to smile"),
         SelectionItem(2, "Friendly", "Felt like seeing a friend; meditation felt lighter."),
-        SelectionItem(3, "Radiant", "Eyes felt like they were smiling; mind became sunny."),
-        SelectionItem(4, "Vibrant", "Triggered bubbling happiness, lightness, or warm energy.")
+        SelectionItem(3, "Radiant", "Eyes felt like they were smiling; mind became sunny.")
     )
     Column {
         Text(
