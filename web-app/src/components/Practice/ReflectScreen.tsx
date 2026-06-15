@@ -205,7 +205,7 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
             </div>
             <div className="space-y-4">
               {[
-                { level: 1, label: 'No Relaxation', desc: "I didn't relax, i brought my mind back immediately" },
+                { level: 1, label: 'No Relaxation', desc: "I forgot to relax" },
                 { level: 2, label: 'Surface', desc: 'I relaxed my shoulders, jaw, or brow' },
                 { level: 3, label: 'Deep', desc: "I felt a release of 'pressure' inside my head" },
                 { level: 4, label: 'Total', desc: 'The whole body felt dropped into profound ease' },
