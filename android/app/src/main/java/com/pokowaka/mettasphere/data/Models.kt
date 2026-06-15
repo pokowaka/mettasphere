@@ -22,6 +22,7 @@ data class Reflection(
     val releaseType: String, // 'suppression' | 'analytical' | 'passive' | '6r'
     val relaxationLevel: Int, // 1-4
     val smileQuality: Int, // 1-4
+    val flowLevel: Int = 1, // 1-4
     val smileDuration: String, // 'vanished' | 'stayed'
     val physicalSensations: List<String>,
     val mentalStates: List<String>

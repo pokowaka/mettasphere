@@ -9,7 +9,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
 
     companion object {
         const val DATABASE_NAME = "mettasphere.db"
-        const val DATABASE_VERSION = 6
+        const val DATABASE_VERSION = 7
 
         // Presets Table
         const val TABLE_PRESETS = "presets"
@@ -34,6 +34,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         const val COL_REF_RELEASE = "release_type"
         const val COL_REF_RELAXATION = "relaxation_level"
         const val COL_REF_SMILE_QUALITY = "smile_quality"
+        const val COL_REF_FLOW_LEVEL = "flow_level"
         const val COL_REF_SMILE_DURATION = "smile_duration"
         const val COL_REF_PHYSICAL = "physical_sensations" // Comma-separated
         const val COL_REF_MENTAL = "mental_states" // Comma-separated
@@ -65,6 +66,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
                 $COL_REF_RELEASE TEXT NOT NULL,
                 $COL_REF_RELAXATION INTEGER NOT NULL,
                 $COL_REF_SMILE_QUALITY INTEGER NOT NULL,
+                $COL_REF_FLOW_LEVEL INTEGER NOT NULL DEFAULT 1,
                 $COL_REF_SMILE_DURATION TEXT NOT NULL,
                 $COL_REF_PHYSICAL TEXT NOT NULL,
                 $COL_REF_MENTAL TEXT NOT NULL
@@ -82,7 +84,7 @@ class DbHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         if (oldVersion < 2) {
             db.execSQL("ALTER TABLE $TABLE_PRESETS ADD COLUMN $COL_PRESET_SHOW_DETAILED INTEGER NOT NULL DEFAULT 1")
         }
-        if (oldVersion < 6) {
+        if (oldVersion < 7) {
             db.execSQL("DROP TABLE IF EXISTS $TABLE_PRESETS")
             db.execSQL("DROP TABLE IF EXISTS $TABLE_REFLECTIONS")
             onCreate(db)

@@ -37,10 +37,11 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
   const [relaxation, setRelaxation] = useState(1)
   const [smileQuality, setSmileQuality] = useState(1)
   const [smileDuration, setSmileDuration] = useState('vanished')
+  const [flowLevel, setFlowLevel] = useState(1)
   const [physical, setPhysical] = useState<string[]>([])
   const [mental, setMental] = useState<string[]>([])
 
-  const totalSteps = 7
+  const totalSteps = 8
 
   const handleSave = async () => {
     await db.reflections.add({
@@ -50,7 +51,8 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
       recognitionLevel: recognition,
       releaseType: release,
       relaxationLevel: relaxation,
-      smileQuality,
+      smileQuality: smileQuality,
+      flowLevel: flowLevel,
       smileDuration,
       physicalSensations: physical,
       mentalStates: mental,
@@ -270,6 +272,32 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
           </section>
         )
       case 6:
+        return (
+          <section className="space-y-12 animate-in fade-in slide-in-from-right duration-500">
+            <div className="text-center space-y-4 mb-12">
+              <h2 className="font-headline text-4xl font-bold text-primary">The Flow</h2>
+              <p className="text-sm text-on-surface-variant">How did the 6R steps feel as you practiced them?</p>
+            </div>
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { level: 1, label: 'Mechanical', desc: "I had to actively recall each step; the process felt separate and manual." },
+                { level: 2, label: 'Structured', desc: 'I knew the steps, but had to move deliberately from one to the next.' },
+                { level: 3, label: 'Harmonious', desc: 'The transition between steps felt smooth and natural, requiring little effort.' },
+                { level: 4, label: 'Automatic', desc: "I didn't have to do anything; the mind naturally followed the steps on its own." },
+              ].map(r => (
+                <button 
+                   key={r.level}
+                   onClick={() => setFlowLevel(r.level)}
+                   className={`text-left p-6 rounded-3xl bg-surface-container-lowest border transition-all ${flowLevel === r.level ? 'border-primary shadow-lg ring-4 ring-primary/5' : 'border-outline-variant/30 hover:border-primary/50'}`}
+                >
+                  <span className={`block text-[10px] font-label tracking-widest uppercase mb-1 font-bold ${flowLevel === r.level ? 'text-primary' : 'text-outline'}`}>Level {r.level}: {r.label}</span>
+                  <p className={`text-base ${flowLevel === r.level ? 'text-on-surface font-semibold' : 'text-on-surface-variant'}`}>{r.desc}</p>
+                </button>
+              ))}
+            </div>
+          </section>
+        )
+      case 7:
         return (
           <section className="space-y-12 animate-in fade-in slide-in-from-right duration-500">
             <div className="text-center space-y-4 mb-12">

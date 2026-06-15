@@ -71,7 +71,7 @@ fun ReflectScreen(
             }
         }
     }
-    val totalSteps = if (showDetailed) 6 else 3
+    val totalSteps = if (showDetailed) 7 else 3
 
     // Questionnaire States
     var radiance by remember { mutableStateOf(1) }
@@ -80,6 +80,7 @@ fun ReflectScreen(
     var releaseType by remember { mutableStateOf("6r") }
     var relaxationLevel by remember { mutableStateOf(1) }
     var smileQuality by remember { mutableStateOf(1) }
+    var flowLevel by remember { mutableStateOf(1) }
 
     val scrollState = rememberScrollState()
 
@@ -98,6 +99,7 @@ fun ReflectScreen(
                     releaseType = releaseType,
                     relaxationLevel = relaxationLevel,
                     smileQuality = smileQuality,
+                    flowLevel = flowLevel,
                     smileDuration = "vanished",
                     physicalSensations = emptyList(),
                     mentalStates = emptyList()
@@ -160,6 +162,10 @@ fun ReflectScreen(
                         5 -> SmileStep(
                             quality = smileQuality,
                             onQualitySelect = { smileQuality = it }
+                        )
+                        6 -> FlowStep(
+                            flowLevel = flowLevel,
+                            onFlowSelect = { flowLevel = it }
                         )
                     }
                 }
@@ -606,6 +612,66 @@ private fun SmileStep(
 
     }
 }
+
+@Composable
+private fun FlowStep(
+    flowLevel: Int,
+    onFlowSelect: (Int) -> Unit
+) {
+    val flows = listOf(
+        SelectionItem(1, "Mechanical", "I had to actively recall each step; the process felt separate and manual."),
+        SelectionItem(2, "Structured", "I knew the steps, but had to move deliberately from one to the next."),
+        SelectionItem(3, "Harmonious", "The transition between steps felt smooth and natural, requiring little effort."),
+        SelectionItem(4, "Automatic", "I didn't have to do anything; the mind naturally followed the steps on its own.")
+    )
+    Column {
+        Text(
+            "The Flow",
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold,
+            color = TerracottaPrimary,
+            modifier = Modifier.fillMaxWidth(),
+            textAlign = TextAlign.Center
+        )
+        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            "How did the 6R steps feel as you practiced them?",
+            fontSize = 14.sp,
+            color = MutedClayText,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(24.dp))
+
+        flows.forEach { opt ->
+            val isSelected = flowLevel == opt.level
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 6.dp)
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(if (isSelected) ClaySoft else WarmSand)
+                    .border(
+                        1.dp,
+                        if (isSelected) TerracottaPrimary else Color.Transparent,
+                        RoundedCornerShape(20.dp)
+                    )
+                    .clickable { onFlowSelect(opt.level) }
+                    .padding(16.dp)
+            ) {
+                Text(
+                    "LEVEL ${opt.level}: ${opt.label}",
+                    fontSize = 11.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = if (isSelected) TerracottaPrimary else MutedClayText
+                )
+                Spacer(modifier = Modifier.height(2.dp))
+                Text(opt.desc, fontSize = 13.sp, color = DarkCharcoalText)
+            }
+        }
+    }
+}
+
 
 
 

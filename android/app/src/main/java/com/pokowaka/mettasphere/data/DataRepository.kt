@@ -88,6 +88,7 @@ class DefaultDataRepository(context: Context) : DataRepository {
                         releaseType = getString(getColumnIndexOrThrow(DbHelper.COL_REF_RELEASE)),
                         relaxationLevel = getInt(getColumnIndexOrThrow(DbHelper.COL_REF_RELAXATION)),
                         smileQuality = getInt(getColumnIndexOrThrow(DbHelper.COL_REF_SMILE_QUALITY)),
+                        flowLevel = getInt(getColumnIndexOrThrow(DbHelper.COL_REF_FLOW_LEVEL)),
                         smileDuration = getString(getColumnIndexOrThrow(DbHelper.COL_REF_SMILE_DURATION)),
                         physicalSensations = if (physicalStr.isEmpty()) emptyList() else physicalStr.split(","),
                         mentalStates = if (mentalStr.isEmpty()) emptyList() else mentalStr.split(",")
@@ -158,6 +159,7 @@ class DefaultDataRepository(context: Context) : DataRepository {
             put(DbHelper.COL_REF_RELEASE, reflection.releaseType)
             put(DbHelper.COL_REF_RELAXATION, reflection.relaxationLevel)
             put(DbHelper.COL_REF_SMILE_QUALITY, reflection.smileQuality)
+            put(DbHelper.COL_REF_FLOW_LEVEL, reflection.flowLevel)
             put(DbHelper.COL_REF_SMILE_DURATION, reflection.smileDuration)
             put(DbHelper.COL_REF_PHYSICAL, reflection.physicalSensations.joinToString(","))
             put(DbHelper.COL_REF_MENTAL, reflection.mentalStates.joinToString(","))

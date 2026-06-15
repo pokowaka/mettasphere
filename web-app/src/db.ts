@@ -22,6 +22,7 @@ export interface Reflection {
   releaseType: string; // 'suppression' | 'analytical' | 'passive' | '6r'
   relaxationLevel: number; // 1-4
   smileQuality: number; // 1-4
+  flowLevel: number; // 1-4
   smileDuration: string; // 'vanished' | 'stayed'
   physicalSensations: string[]; // ids of sensations
   mentalStates: string[]; // ids of mental states
