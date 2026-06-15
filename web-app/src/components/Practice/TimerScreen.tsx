@@ -6,18 +6,24 @@ interface TimerScreenProps {
   onEnd: () => void
 }
 
-// Simple Sound Manager logic
+const soundMap: Record<string, string> = {
+  "Singing Bowl": "bowl.wav",
+  "Burmese Bell": "burmese_bell.wav",
+  "Double Chime": "bell.wav",
+  "Woodblock": "woodblock.wav",
+  "Gong": "gong.wav"
+}
+
 const playSound = (soundName: string) => {
-  if (soundName === 'No sound') return;
+  if (soundName === 'No sound') return
+  const fileName = soundMap[soundName]
+  if (!fileName) return
   
-  // Placeholder logic: in a real app, these would be local assets or specific URLs
-  // For this prototype, we'll log the sound being played.
-  console.log(`Playing sound: ${soundName}`);
-  
-  // Example of how to play an actual file:
-  // const audio = new Audio(`/sounds/${soundName.toLowerCase().replace(' ', '_')}.mp3`);
-  // audio.play().catch(e => console.error("Audio play failed", e));
-};
+  console.log(`Playing sound: ${soundName} (${fileName})`)
+  const base = import.meta.env.BASE_URL || '/'
+  const audio = new Audio(`${base}sounds/${fileName}`)
+  audio.play().catch(e => console.error("Audio play failed", e))
+}
 
 const TimerScreen: React.FC<TimerScreenProps> = ({ preset, onEnd }) => {
   const [phase, setPhase] = useState<'delay' | 'active' | 'finished'>(preset.delaySeconds > 0 ? 'delay' : 'active')

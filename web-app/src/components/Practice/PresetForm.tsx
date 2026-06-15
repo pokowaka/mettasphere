@@ -7,6 +7,23 @@ interface PresetFormProps {
   onSave: () => void
 }
 
+const soundMap: Record<string, string> = {
+  "Singing Bowl": "bowl.wav",
+  "Burmese Bell": "burmese_bell.wav",
+  "Double Chime": "bell.wav",
+  "Woodblock": "woodblock.wav",
+  "Gong": "gong.wav"
+}
+
+const playPreview = (soundName: string) => {
+  if (soundName === 'No sound') return
+  const fileName = soundMap[soundName]
+  if (!fileName) return
+  const base = import.meta.env.BASE_URL || '/'
+  const audio = new Audio(`${base}sounds/${fileName}`)
+  audio.play().catch(e => console.error("Preview failed", e))
+}
+
 const VISUALS = [
   { id: '1', url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb', alt: 'Serene mountain lake' },
   { id: '2', url: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e', alt: 'Sunlight through trees' },
@@ -21,9 +38,9 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
   const [interval, setIntervalVal] = useState(preset?.intervalMinutes || 5)
   const [duration, setDuration] = useState(preset?.totalMinutes || 20)
   
-  const [startSound, setStartSound] = useState(preset?.startSound || 'Deep Bowl')
-  const [intervalSound, setIntervalSound] = useState(preset?.intervalSound || 'Singing Bowl')
-  const [endSound, setEndSound] = useState(preset?.endSound || 'Soft Gong')
+  const [startSound, setStartSound] = useState(preset?.startSound || 'Singing Bowl')
+  const [intervalSound, setIntervalSound] = useState(preset?.intervalSound || 'Woodblock')
+  const [endSound, setEndSound] = useState(preset?.endSound || 'Gong')
 
   useEffect(() => {
     if (preset) {
@@ -120,13 +137,18 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
             </div>
             <select 
               value={startSound}
-              onChange={(e) => setStartSound(e.target.value)}
+              onChange={(e) => {
+                setStartSound(e.target.value)
+                playPreview(e.target.value)
+              }}
               className="bg-surface-container-low border-none rounded-lg text-xs font-medium py-2 focus:ring-0 text-on-surface-variant outline-none"
             >
               <option>No sound</option>
-              <option>Deep Bowl</option>
               <option>Singing Bowl</option>
-              <option>Soft Gong</option>
+              <option>Burmese Bell</option>
+              <option>Double Chime</option>
+              <option>Woodblock</option>
+              <option>Gong</option>
             </select>
           </div>
           <input 
@@ -152,13 +174,18 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
             </div>
             <select 
               value={intervalSound}
-              onChange={(e) => setIntervalSound(e.target.value)}
+              onChange={(e) => {
+                setIntervalSound(e.target.value)
+                playPreview(e.target.value)
+              }}
               className="bg-surface-container-low border-none rounded-lg text-xs font-medium py-2 focus:ring-0 text-on-surface-variant outline-none"
             >
               <option>No sound</option>
-              <option>Deep Bowl</option>
               <option>Singing Bowl</option>
-              <option>Soft Gong</option>
+              <option>Burmese Bell</option>
+              <option>Double Chime</option>
+              <option>Woodblock</option>
+              <option>Gong</option>
             </select>
           </div>
           <input 
@@ -184,13 +211,18 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
             </div>
             <select 
               value={endSound}
-              onChange={(e) => setEndSound(e.target.value)}
+              onChange={(e) => {
+                setEndSound(e.target.value)
+                playPreview(e.target.value)
+              }}
               className="bg-surface-container-low border-none rounded-lg text-xs font-medium py-2 focus:ring-0 text-on-surface-variant outline-none"
             >
               <option>No sound</option>
-              <option>Deep Bowl</option>
               <option>Singing Bowl</option>
-              <option>Soft Gong</option>
+              <option>Burmese Bell</option>
+              <option>Double Chime</option>
+              <option>Woodblock</option>
+              <option>Gong</option>
             </select>
           </div>
           <input 
