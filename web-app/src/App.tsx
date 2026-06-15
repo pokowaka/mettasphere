@@ -49,8 +49,15 @@ function App() {
       case 'reflect':
         return (
           <ReflectScreen 
-            onSave={() => setCurrentScreen('progress')}
-            onSkip={() => setCurrentScreen('start')}
+            preset={selectedPreset}
+            onSave={() => {
+              setSelectedPreset(null)
+              setCurrentScreen('progress')
+            }}
+            onSkip={() => {
+              setSelectedPreset(null)
+              setCurrentScreen('start')
+            }}
           />
         )
       case 'history':

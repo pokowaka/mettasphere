@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { db } from '../../db'
 
+import { type Preset } from '../../db'
+
 interface ReflectScreenProps {
+  preset: Preset | null
   onSave: () => void
   onSkip: () => void
 }
@@ -28,7 +31,7 @@ const MENTAL = [
   { id: 'bright', name: 'Bright', description: 'Internal vision feels very light/bright.' },
 ]
 
-const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
+const ReflectScreen: React.FC<ReflectScreenProps> = ({ preset, onSave, onSkip }) => {
   const [step, setStep] = useState(0)
   const [radiance, setRadiance] = useState(5)
   const [hindrances, setHindrances] = useState<string[]>([])
@@ -41,7 +44,8 @@ const ReflectScreen: React.FC<ReflectScreenProps> = ({ onSave, onSkip }) => {
   const [physical, setPhysical] = useState<string[]>([])
   const [mental, setMental] = useState<string[]>([])
 
-  const totalSteps = 8
+  const showDetailed = preset ? preset.showDetailedReflection : true
+  const totalSteps = showDetailed ? 8 : 3
 
   const handleSave = async () => {
     await db.reflections.add({

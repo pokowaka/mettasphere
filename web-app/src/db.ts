@@ -10,6 +10,7 @@ export interface Preset {
   startSound: string;
   intervalSound: string;
   endSound: string;
+  showDetailedReflection: boolean;
 }
 
 export interface Reflection {
@@ -49,7 +50,8 @@ db.on('populate', () => {
       totalMinutes: 15,
       startSound: "Singing Bowl",
       intervalSound: "Woodblock",
-      endSound: "Gong"
+      endSound: "Gong",
+      showDetailedReflection: true
     },
     {
       name: "Learning the 6Rs (30m)",
@@ -59,7 +61,8 @@ db.on('populate', () => {
       totalMinutes: 30,
       startSound: "Singing Bowl",
       intervalSound: "Woodblock",
-      endSound: "Gong"
+      endSound: "Gong",
+      showDetailedReflection: true
     },
     {
       name: "Morning Metta (30m)",
@@ -69,7 +72,8 @@ db.on('populate', () => {
       totalMinutes: 30,
       startSound: "Singing Bowl",
       intervalSound: "Woodblock",
-      endSound: "Gong"
+      endSound: "Gong",
+      showDetailedReflection: false
     },
     {
       name: "Deep Presence (60m)",
@@ -79,7 +83,8 @@ db.on('populate', () => {
       totalMinutes: 60,
       startSound: "Singing Bowl",
       intervalSound: "Woodblock",
-      endSound: "Gong"
+      endSound: "Gong",
+      showDetailedReflection: false
     }
   ]);
 });

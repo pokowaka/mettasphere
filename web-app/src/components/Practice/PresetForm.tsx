@@ -41,6 +41,7 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
   const [startSound, setStartSound] = useState(preset?.startSound || 'Singing Bowl')
   const [intervalSound, setIntervalSound] = useState(preset?.intervalSound || 'Woodblock')
   const [endSound, setEndSound] = useState(preset?.endSound || 'Gong')
+  const [showDetailed, setShowDetailed] = useState(preset?.showDetailedReflection !== false)
 
   useEffect(() => {
     if (preset) {
@@ -52,6 +53,7 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
       setStartSound(preset.startSound)
       setIntervalSound(preset.intervalSound)
       setEndSound(preset.endSound)
+      setShowDetailed(preset.showDetailedReflection !== false)
     }
   }, [preset])
 
@@ -65,6 +67,7 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
       startSound,
       intervalSound,
       endSound,
+      showDetailedReflection: showDetailed,
     }
 
     if (preset?.id) {
@@ -230,6 +233,23 @@ const PresetForm: React.FC<PresetFormProps> = ({ preset, onCancel, onSave }) => 
             onChange={(e) => setDuration(parseInt(e.target.value))}
             className="w-full h-1 bg-surface-variant rounded-full appearance-none cursor-pointer accent-primary" 
           />
+        </div>
+
+        {/* Detailed Reflection Selection */}
+        <div className="flex justify-between items-center bg-surface-container-low p-5 rounded-3xl border border-outline-variant/10 shadow-sm mt-4">
+          <div className="space-y-1">
+            <span className="block text-base font-bold text-on-surface">Detailed Reflection</span>
+            <span className="block text-xs text-on-surface-variant max-w-sm">Highly recommended for beginners to practice tracking recognition, release type, relaxation and flow.</span>
+          </div>
+          <label className="relative inline-flex items-center cursor-pointer">
+            <input 
+              type="checkbox" 
+              checked={showDetailed} 
+              onChange={(e) => setShowDetailed(e.target.checked)}
+              className="sr-only peer" 
+            />
+            <div className="w-11 h-6 bg-outline-variant/50 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+          </label>
         </div>
       </div>
 

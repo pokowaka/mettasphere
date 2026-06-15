@@ -26,12 +26,12 @@ const StartScreen: React.FC<StartScreenProps> = ({ onStartTimer, onEditPreset, o
             </p>
           </div>
           <div className="relative aspect-square flex items-center justify-center">
-            <div className="absolute inset-0 bg-primary-container/40 rounded-full scale-110 blur-3xl animate-pulse"></div>
-            <div className="w-64 h-64 rounded-full overflow-hidden shadow-2xl z-10 border-4 border-surface">
+            <div className="absolute inset-0 bg-primary/20 rounded-full scale-110 blur-3xl animate-pulse"></div>
+            <div className="w-56 h-56 rounded-3xl overflow-hidden shadow-2xl z-10 border-4 border-surface bg-surface flex items-center justify-center p-4">
               <img 
-                alt="zen aesthetic" 
-                className="w-full h-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0nCC-c75ONfIuos1LjCnCz9r6gAr5IgP5vpp-pOtX4UBB2ql_zjEM-9wtcN5P1WMPp-zFN7SNmqlVO6c1bKhXzu61l1HMDHv6GLIcLrd9OgVjwevDZw-7b3uD_otkzefPl52Ku867FZTbuAMGbzFg2YJ3Nyfvl43FcKwgLRnnZ-3OX25CWZUd5mp4jsMJiey7kYag7e-EX6YerKHpuAEektzEv4olLHJkTevn11AzIWLRtXt67WCcE7d8khKgXF6sG32l9EBaook" 
+                alt="MettaSphere Logo" 
+                className="w-full h-full object-contain"
+                src={`${import.meta.env.BASE_URL || '/'}logo.png`}
               />
             </div>
           </div>
